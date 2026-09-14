@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KARMED — Emergências Médicas para Dentistas | Curso + App com IA</title>
+<meta name="description" content="O único curso do Brasil criado por médico intensivista + professor titular da UFF. Preparo real para emergências médicas no consultório odontológico, com app e IA clínica.">
+<meta property="og:title" content="KARMED — Preparo real para emergências médicas. Não sorte.">
+<meta property="og:description" content="Curso de emergências médicas para dentistas com 16 módulos, app com IA clínica e guia da maleta de emergência.">
+<meta property="og:image" content="assets/hero-poster.jpg">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1D3D; --navy-deep:#0A1530; --navy-soft:#16284F;
+  --gold:#E8C451; --gold-deep:#C9A227; --red:#D9413F; --teal:#1F9E8C;
+  --cream:#F4F1EA; --paper:#FFFFFF; --ink:#10203A; --muted:#5B6B82;
+  --line:rgba(16,32,58,.14); --line-dark:rgba(244,241,234,.22);
+  --cream-70:rgba(244,241,234,.72); --cream-50:rgba(244,241,234,.5);
+  --font-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --font-body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --fs-hero:clamp(3rem,8.4vw,7.6rem); --fs-1:clamp(2.4rem,5vw,4.4rem); --fs-2:clamp(1.9rem,3.4vw,3rem); --fs-3:clamp(1.3rem,2vw,1.7rem);
+  --fs-lead:clamp(1.1rem,1.5vw,1.35rem); --fs-body:1.0625rem; --fs-small:.9375rem; --fs-label:.75rem;
+  --s-1:8px; --s-2:16px; --s-3:24px; --s-4:32px; --s-5:48px; --s-6:64px; --s-7:96px; --s-8:136px;
+  --ease:cubic-bezier(.2,.7,.2,1); --dur:.75s; --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.03em;line-height:1;font-weight:800}
+h1{font-size:var(--fs-hero)}
+h2{font-size:var(--fs-1);line-height:.98}
+h3{font-size:var(--fs-3);line-height:1.1;font-weight:700}
+h2 em,h1 em{font-style:normal;color:var(--gold)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--s-3)}
+@media(min-width:900px){.wrap{padding:0 var(--s-5)}}
+.sec{padding:var(--s-7) 0}
+@media(min-width:900px){.sec{padding:var(--s-8) 0}}
+.dark{background:var(--navy);color:var(--cream)}
+.white{background:var(--paper)}
+.label{font-family:var(--font-display);font-size:var(--fs-label);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);display:inline-flex;align-items:center;gap:10px;margin-bottom:var(--s-3)}
+.label::before{content:"";width:10px;height:10px;background:currentColor;flex:none}
+.dark .label{color:var(--gold)}
+.lead{font-size:var(--fs-lead);line-height:1.5;color:var(--muted);max-width:60ch}
+.dark .lead{color:var(--cream-70)}
+.sec-head{display:grid;gap:var(--s-3);align-items:end;margin-bottom:var(--s-6)}
+@media(min-width:960px){.sec-head{grid-template-columns:1.2fr .8fr;gap:var(--s-6)}.sec-head .lead{padding-bottom:6px}}
+.num{font-family:var(--font-display);font-weight:600;font-size:var(--fs-label);letter-spacing:.14em;color:var(--muted)}
+.dark .num{color:var(--cream-50)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 30px;font-family:var(--font-display);font-weight:700;font-size:1rem;letter-spacing:-.01em;cursor:pointer;border:1px solid transparent;transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:#F2D46E}
+.btn-navy{background:var(--navy);color:var(--cream)}
+.btn-navy:hover{background:var(--navy-soft)}
+.btn-line{background:transparent;color:var(--cream);border-color:rgba(244,241,234,.45)}
+.btn-line:hover{border-color:var(--cream);background:rgba(244,241,234,.08)}
+.btn-line-ink{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-line-ink:hover{background:var(--ink);color:var(--cream)}
+.btn-wa{background:#1FA85A;color:#fff}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 0;transition:background .4s,box-shadow .4s,padding .4s}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2)}
+.nav.is-solid{background:rgba(15,29,61,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line-dark);padding:10px 0}
+.brand{display:flex;align-items:center;gap:12px;color:var(--cream);font-family:var(--font-display);font-weight:800;font-size:1.3rem;letter-spacing:.06em}
+.brand img{width:40px;height:40px}
+.brand b{color:var(--gold)}
+.nav-links{display:none;gap:28px;font-family:var(--font-display);font-size:.9rem;font-weight:500;color:var(--cream-70)}
+.nav-links a{position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--gold);transition:right .3s var(--ease)}
+.nav-links a:hover{color:var(--cream)}
+.nav-links a:hover::after{right:0}
+@media(min-width:1080px){.nav-links{display:flex}}
+.nav .btn{padding:12px 20px;font-size:.9rem}
+.tag-vagas{display:none;font-family:var(--font-display);font-size:var(--fs-label);font-weight:700;letter-spacing:.08em;color:var(--gold);border:1px solid rgba(232,196,81,.5);padding:8px 12px;align-items:center;gap:8px}
+.tag-vagas i{width:8px;height:8px;background:var(--gold);animation:blink 1.2s infinite}
+@media(min-width:760px){.tag-vagas{display:inline-flex}}
+@keyframes blink{50%{opacity:.25}}
+@media(max-width:700px){.brand .txt{display:none}.nav .btn{padding:10px 16px}}
+
+/* ===== HERO SCROLL CINEMA ===== */
+.sc-hero{position:relative;height:480vh;background:var(--navy)}
+.sc-sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--navy)}
+.sc-video,.sc-canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+.sc-video.is-ready,.sc-canvas.is-ready{opacity:1}
+.sc-canvas{display:none}
+.sc-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(15,29,61,.9) 0%,rgba(15,29,61,.66) 36%,rgba(15,29,61,.1) 68%,rgba(15,29,61,0) 100%)}
+.sc-shade::after{content:"";position:absolute;left:0;right:0;bottom:0;height:36%;background:linear-gradient(180deg,rgba(15,29,61,0),rgba(15,29,61,.62))}
+.sc-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--line-dark) 1px,transparent 1px),linear-gradient(90deg,var(--line-dark) 1px,transparent 1px);background-size:96px 96px;opacity:.35;mask-image:linear-gradient(90deg,#000 0,transparent 60%);-webkit-mask-image:linear-gradient(90deg,#000 0,transparent 60%)}
+@media(max-width:700px){.sc-shade{background:linear-gradient(180deg,rgba(15,29,61,.9) 0%,rgba(15,29,61,.55) 55%,rgba(15,29,61,.2) 100%)}}
+.sc-loader{position:absolute;inset:0;display:grid;place-items:center;z-index:9;background:var(--navy);transition:opacity .6s ease}
+.sc-loader.is-gone{opacity:0;pointer-events:none}
+.sc-loader .ld{display:flex;flex-direction:column;align-items:center;gap:var(--s-2);font-family:var(--font-display);font-size:var(--fs-label);letter-spacing:.2em;text-transform:uppercase;color:var(--cream-50)}
+.sc-loader .ld img{width:56px;height:56px}
+.sc-loader .bar{width:180px;height:2px;background:var(--line-dark);overflow:hidden}
+.sc-loader .bar i{display:block;height:100%;width:40%;background:var(--gold);animation:ld 1.2s infinite var(--ease)}
+@keyframes ld{0%{transform:translateX(-100%)}100%{transform:translateX(260%)}}
+.sc-progress{position:absolute;top:0;left:0;height:3px;background:var(--gold);width:0;z-index:8}
+
+.sc-ui{position:absolute;inset:0;z-index:3;pointer-events:none}
+.sc-line{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);opacity:0;will-change:opacity,transform}
+.sc-line.on{pointer-events:auto}
+.sc-line .inner{max-width:var(--max);margin:0 auto;padding:0 var(--s-3)}
+@media(min-width:900px){.sc-line .inner{padding:0 var(--s-5)}}
+.sc-line h1{color:var(--cream);max-width:12ch}
+.sc-line p{font-size:var(--fs-lead);line-height:1.45;color:var(--cream-70);max-width:48ch;margin-top:var(--s-3);font-style:italic}
+.sc-line .cta{display:flex;flex-wrap:wrap;gap:var(--s-2);margin-top:var(--s-4)}
+.sc-line .kicker{font-family:var(--font-display);font-size:var(--fs-label);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:10px;margin-bottom:var(--s-3)}
+.sc-line .kicker::before{content:"";width:10px;height:10px;background:var(--gold);flex:none}
+@media(max-width:700px){.sc-line{top:46%}.sc-line h1{font-size:clamp(2.4rem,11vw,3.4rem)}.sc-line p{font-size:1.05rem}.sc-line .kicker{font-size:.65rem}}
+
+/* HUD: stats strip with clock + ECG */
+.sc-hud{position:absolute;left:0;right:0;bottom:0;z-index:4;pointer-events:none}
+.sc-hud .inner{max-width:var(--max);margin:0 auto;padding:0 var(--s-3);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-dark)}
+@media(min-width:900px){.sc-hud .inner{padding:0 var(--s-5)}}
+.sc-hud .cell{padding:18px 20px 22px 0;border-right:1px solid var(--line-dark);color:var(--cream)}
+.sc-hud .cell+.cell{padding-left:20px}
+.sc-hud .cell:last-child{border-right:0}
+.sc-hud .v{font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.6rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.sc-hud .k{font-size:var(--fs-small);color:var(--cream-70);margin-top:6px;font-style:italic}
+.sc-hud .v.clock{color:var(--gold)}
+.sc-hud .v.clock.alert{color:#FF7A73}
+.ecg{width:100%;height:44px;display:block;margin-top:4px}
+.ecg path{fill:none;stroke:var(--gold);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.ecg .ghost{stroke:var(--line-dark)}
+@media(max-width:700px){.sc-hud .inner{grid-template-columns:1fr 1fr}.sc-hud .cell:nth-child(2){border-right:0;padding-left:16px}.sc-hud .cell:nth-child(3),.sc-hud .cell:nth-child(4){display:none}.sc-hud .cell{padding:14px 12px 16px 0}}
+.scroll-hint{position:absolute;right:var(--s-5);top:50%;transform:translateY(-50%);z-index:4;color:var(--cream-70);font-family:var(--font-display);font-size:var(--fs-label);letter-spacing:.2em;text-transform:uppercase;writing-mode:vertical-rl;display:flex;align-items:center;gap:12px;transition:opacity .4s}
+.scroll-hint span{width:1px;height:60px;background:linear-gradient(var(--gold),transparent);animation:hint 1.6s infinite}
+@keyframes hint{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:900px){.scroll-hint{display:none}}
+
+/* marquee */
+.marquee{background:var(--gold);color:var(--navy);padding:14px 0;overflow:hidden}
+.marquee .track{display:flex;gap:var(--s-5);width:max-content;animation:mq 46s linear infinite;font-family:var(--font-display);font-weight:700;font-size:.95rem;letter-spacing:.02em;white-space:nowrap;text-transform:uppercase}
+.marquee .track span{display:inline-flex;align-items:center;gap:var(--s-3)}
+.marquee .track span::before{content:"";width:8px;height:8px;background:var(--navy)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* problema */
+.split{display:grid;gap:var(--s-6);align-items:center}
+@media(min-width:960px){.split{grid-template-columns:1fr 1fr}}
+.pull{font-family:var(--font-display);font-weight:700;font-size:var(--fs-3);line-height:1.2;letter-spacing:-.02em;padding-left:var(--s-3);border-left:4px solid var(--gold);margin-top:var(--s-4);max-width:34ch}
+.gapbox{background:var(--navy);color:var(--cream);padding:var(--s-4)}
+.gapbox h3{margin-bottom:var(--s-4)}
+.meter{margin-top:var(--s-3)}
+.meter .lb{display:flex;justify-content:space-between;font-family:var(--font-display);font-size:var(--fs-label);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.meter .bar{height:14px;background:rgba(244,241,234,.1);overflow:hidden}
+.meter .bar i{display:block;height:100%;width:0;transition:width 1.4s var(--ease)}
+.meter.risk .bar i{background:var(--red)}
+.meter.prep .bar i{background:var(--teal)}
+.meter.risk .lb{color:#FF9B96}
+.meter.prep .lb{color:#6FD8C6}
+.gapbox p{margin-top:var(--s-3);color:var(--cream-70);font-style:italic;font-size:var(--fs-small)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:var(--s-5)}
+.stat{padding:var(--s-3) var(--s-3) var(--s-3) 0;border-right:1px solid var(--line)}
+.stat+.stat{padding-left:var(--s-3)}
+.stat:last-child{border-right:0}
+.stat b{font-family:var(--font-display);font-weight:800;font-size:var(--fs-2);line-height:1;display:block;letter-spacing:-.03em}
+.stat b i{font-style:normal;color:var(--gold-deep)}
+.stat>span{font-size:var(--fs-small);color:var(--muted);font-style:italic}
+
+/* cards */
+.cards{display:grid;gap:0;border:1px solid var(--line)}
+@media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{padding:var(--s-4);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:var(--s-2);transition:background .3s;position:relative}
+@media(min-width:900px){.card{border-bottom:0;border-right:1px solid var(--line)}.card:last-child{border-right:0}}
+.card:hover{background:var(--cream)}
+.card .ic{width:48px;height:48px;border:1px solid var(--ink);display:grid;place-items:center;color:var(--ink);margin-bottom:var(--s-2)}
+.card .ic svg{width:24px;height:24px}
+.card p{color:var(--muted);font-size:var(--fs-body)}
+.card .num{margin-bottom:var(--s-3)}
+
+/* curso */
+.areas{display:grid;border:1px solid var(--line-dark)}
+.area{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--s-3);padding:var(--s-3);border-bottom:1px solid var(--line-dark);transition:background .3s}
+.area:last-child{border-bottom:0}
+.area:hover{background:rgba(244,241,234,.06)}
+.area .sq{width:14px;height:14px}
+.area h4{font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+.area p{font-size:var(--fs-small);color:var(--cream-70);margin-top:4px;font-style:italic}
+.area .n{font-family:var(--font-display);font-weight:700;font-size:var(--fs-label);letter-spacing:.1em;color:var(--gold);white-space:nowrap}
+.check{list-style:none;display:grid;gap:12px;margin-top:var(--s-3)}
+.check li{display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:start;font-size:var(--fs-body)}
+.check li::before{content:"";width:20px;height:20px;margin-top:3px;background:var(--gold);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230F1D3D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");background-size:13px;background-repeat:no-repeat;background-position:center}
+.small-note{font-size:var(--fs-small);color:var(--muted);font-style:italic;margin-top:var(--s-3);max-width:60ch}
+.dark .small-note{color:var(--cream-50)}
+
+/* app */
+.phone{margin:0 auto;width:min(330px,82vw);aspect-ratio:9/19;border:1px solid var(--ink);background:var(--navy);position:relative;overflow:hidden;padding:26px 18px;color:var(--cream);box-shadow:24px 24px 0 var(--gold)}
+.phone .t{display:flex;justify-content:space-between;font-family:var(--font-display);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-50)}
+.phone .h{font-family:var(--font-display);font-weight:800;font-size:1.25rem;line-height:1.1;letter-spacing:-.02em;margin-top:22px}
+.phone .al{margin-top:14px;padding:12px;border:1px solid rgba(217,65,63,.6);background:rgba(217,65,63,.12);font-size:13px}
+.phone .al b{display:block;font-family:var(--font-display);font-size:10px;letter-spacing:.12em;color:#FF9B96;margin-bottom:4px}
+.phone .st{margin-top:8px;padding:11px 12px;background:rgba(244,241,234,.06);font-size:13px;display:flex;gap:10px;align-items:center}
+.phone .st i{flex:none;width:20px;height:20px;display:grid;place-items:center;font-family:var(--font-display);font-size:10px;font-weight:700;background:var(--gold);color:var(--navy);font-style:normal}
+.phone .st.done i{background:var(--teal);color:#fff}
+.phone .ds{margin-top:12px;padding:12px;border:1px solid rgba(31,158,140,.6);background:rgba(31,158,140,.12);font-size:12px}
+.phone .ds b{font-family:var(--font-display);font-size:1.15rem;color:#6FD8C6;display:block;letter-spacing:-.01em}
+.phone .f{position:absolute;bottom:20px;left:18px;right:18px;display:flex;justify-content:space-between;font-family:var(--font-display);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-50)}
+.feat{display:grid;gap:0;border-top:1px solid var(--line);margin-top:var(--s-4)}
+.feat .f{display:grid;grid-template-columns:44px 1fr;gap:var(--s-3);padding:var(--s-3) 0;border-bottom:1px solid var(--line)}
+.feat .f i{width:44px;height:44px;border:1px solid var(--ink);display:grid;place-items:center;color:var(--ink)}
+.feat .f i svg{width:22px;height:22px}
+.feat .f h4{font-size:1.1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:4px}
+.feat .f p{color:var(--muted);font-size:var(--fs-small)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:var(--s-6)}
+.steps .s{padding:var(--s-3);border-right:1px solid var(--line);font-size:var(--fs-small)}
+.steps .s:last-child{border-right:0}
+.steps .s b{display:block;font-family:var(--font-display);color:var(--gold-deep);font-size:var(--fs-label);letter-spacing:.14em;margin-bottom:10px}
+@media(max-width:800px){.steps{grid-template-columns:1fr 1fr}.steps .s:nth-child(2){border-right:0}.steps .s:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* docentes */
+.docs{display:grid;gap:var(--s-3)}
+@media(min-width:700px){.docs{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.docs{grid-template-columns:repeat(4,1fr)}}
+.doc{border:1px solid var(--line);background:var(--paper);display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.doc:hover{transform:translateY(-6px);box-shadow:16px 16px 0 var(--gold)}
+.doc .ph{aspect-ratio:4/5;overflow:hidden;background:#E3E6EA;border-bottom:1px solid var(--line)}
+.doc .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.92);transition:transform .8s var(--ease)}
+.doc:hover .ph img{transform:scale(1.04)}
+.doc .bd{padding:var(--s-3);display:flex;flex-direction:column;gap:10px}
+.doc h3{font-size:1.2rem}
+.doc .role{font-family:var(--font-display);font-size:var(--fs-label);font-weight:600;letter-spacing:.06em;color:var(--gold-deep);line-height:1.5}
+.doc p{font-size:var(--fs-small);color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tags span{font-family:var(--font-display);font-size:11px;font-weight:600;padding:5px 9px;border:1px solid var(--line);color:var(--ink)}
+.validation{margin-top:var(--s-6);padding:var(--s-4);background:var(--navy);color:var(--cream);display:grid;gap:var(--s-3);align-items:center}
+@media(min-width:900px){.validation{grid-template-columns:auto 1fr;gap:var(--s-5)}}
+.validation .seal{width:110px;height:110px;border:2px solid var(--gold);display:grid;place-items:center;font-family:var(--font-display);font-size:10px;font-weight:700;text-align:center;letter-spacing:.14em;color:var(--gold);line-height:1.5;transform:rotate(-6deg)}
+.validation p{color:var(--cream-70);margin-top:8px}
+
+/* audience */
+.aud{display:grid;border:1px solid var(--line)}
+.aud div{display:grid;grid-template-columns:56px 1fr;align-items:stretch;border-bottom:1px solid var(--line);font-family:var(--font-display);font-weight:600;font-size:1.05rem;letter-spacing:-.01em;background:var(--paper)}
+.aud div:last-child{border-bottom:0}
+.aud div i{background:var(--navy);color:var(--gold);display:grid;place-items:center;font-size:var(--fs-label);letter-spacing:.1em;font-style:normal;border-right:1px solid var(--line)}
+.aud div span{padding:var(--s-3)}
+
+/* anchoring */
+.anchor{display:grid;border:1px solid var(--line-dark);max-width:880px}
+.anchor .row{display:grid;grid-template-columns:1fr auto;gap:var(--s-2);align-items:center;padding:var(--s-3);border-bottom:1px solid var(--line-dark)}
+.anchor .row:last-child{border-bottom:0}
+.anchor .row b{font-family:var(--font-display);font-weight:700;font-size:1.05rem;white-space:nowrap;color:#FF9B96;letter-spacing:-.01em}
+.anchor .row.win{background:var(--gold);color:var(--navy)}
+.anchor .row.win b{color:var(--navy)}
+.anchor .row span{font-size:var(--fs-body)}
+@media(max-width:520px){.anchor .row{grid-template-columns:1fr}}
+
+/* plans */
+.plans{display:grid;gap:var(--s-3);align-items:stretch}
+@media(min-width:960px){.plans{grid-template-columns:1fr 1.12fr 1fr;align-items:center}}
+.plan{background:var(--paper);border:1px solid var(--line);padding:var(--s-4);display:flex;flex-direction:column;gap:var(--s-3);position:relative}
+.plan.hot{background:var(--navy);color:var(--cream);border-color:var(--navy);box-shadow:20px 20px 0 var(--gold)}
+.plan .badge{position:absolute;top:-14px;left:var(--s-4);background:var(--gold);color:var(--navy);font-family:var(--font-display);font-size:var(--fs-label);letter-spacing:.14em;font-weight:700;padding:7px 12px}
+.plan h3{font-size:1.5rem}
+.plan .desc{font-size:var(--fs-small);color:var(--muted);font-style:italic}
+.plan.hot .desc{color:var(--cream-70)}
+.plan .price{font-family:var(--font-display);font-weight:800;font-size:2.8rem;line-height:1;letter-spacing:-.04em}
+.plan .price small{font-size:1rem;font-weight:700;letter-spacing:0;margin-right:4px;vertical-align:top;position:relative;top:6px}
+.plan .price em{font-style:normal;font-size:1rem;font-weight:600;color:var(--muted);letter-spacing:0}
+.plan.hot .price em{color:var(--cream-70)}
+.plan .sub{font-family:var(--font-display);font-size:var(--fs-label);font-weight:700;color:var(--gold-deep);letter-spacing:.08em;text-transform:uppercase;margin-top:8px}
+.plan.hot .sub{color:var(--gold)}
+.plan .check li{font-size:var(--fs-small)}
+.plan .btn{width:100%;margin-top:auto}
+.guarantee{margin-top:var(--s-6);display:grid;border:1px solid var(--line)}
+@media(min-width:760px){.guarantee{grid-template-columns:repeat(3,1fr)}}
+.guarantee div{display:flex;gap:14px;align-items:center;padding:var(--s-3);border-bottom:1px solid var(--line);font-family:var(--font-display);font-weight:600;font-size:.95rem;background:var(--paper)}
+.guarantee div:last-child{border-bottom:0}
+@media(min-width:760px){.guarantee div{border-bottom:0;border-right:1px solid var(--line)}.guarantee div:last-child{border-right:0}}
+.guarantee div i{width:40px;height:40px;border:1px solid var(--ink);display:grid;place-items:center;color:var(--ink);flex:none}
+.guarantee svg{width:20px;height:20px}
+.updates{margin-top:var(--s-5);display:grid;gap:10px;font-size:var(--fs-small);color:var(--muted);max-width:760px;font-style:italic}
+.updates div{display:grid;grid-template-columns:auto 1fr;gap:var(--s-2)}
+.updates b{font-family:var(--font-display);font-style:normal;color:var(--gold-deep);font-weight:700;letter-spacing:.06em}
+
+/* faq */
+.faq{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:var(--s-3) 0;font-family:var(--font-display);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;display:grid;grid-template-columns:48px 1fr auto;gap:var(--s-2);align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .n{font-size:var(--fs-label);letter-spacing:.12em;color:var(--muted);font-weight:600}
+.faq summary::after{content:"+";color:var(--gold-deep);font-size:1.6rem;font-weight:500;transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 var(--s-3) 48px;color:var(--muted);font-size:var(--fs-body)}
+@media(max-width:600px){.faq summary{grid-template-columns:1fr auto}.faq summary .n{display:none}.faq details p{padding-left:0}}
+
+/* final cta */
+.final{background:var(--navy);color:var(--cream);overflow:hidden;position:relative}
+.final .bg{position:absolute;inset:0;background-image:url(assets/hero-end.jpg);background-size:cover;background-position:center;opacity:.35}
+.final .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 20%,rgba(15,29,61,.6) 100%)}
+.final .wrap{position:relative;display:grid;gap:var(--s-3);max-width:900px;margin:0 auto}
+.final h2{max-width:18ch}
+.final .cta{display:flex;flex-wrap:wrap;gap:var(--s-2);margin-top:var(--s-2)}
+
+/* footer */
+footer{background:var(--navy-deep);color:var(--cream-50);padding:var(--s-5) 0;font-size:var(--fs-small);border-top:1px solid var(--line-dark)}
+footer .wrap{display:grid;gap:var(--s-3)}
+@media(min-width:800px){footer .wrap{grid-template-columns:1fr auto auto;align-items:center}}
+footer .brand{font-size:1.1rem}
+footer .brand img{width:32px;height:32px}
+
+/* whatsapp float */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;background:#1FA85A;display:grid;place-items:center;box-shadow:6px 6px 0 var(--navy);transition:transform .3s var(--ease)}
+.wa-float:hover{transform:translate(-2px,-2px)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+/* motion kit */
+.rv{opacity:0;transform:translateY(28px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-stagger>*{opacity:0;transform:translateY(28px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.rv-stagger.in>*{opacity:1;transform:none}
+.rv-stagger.in>*:nth-child(2){transition-delay:.08s}.rv-stagger.in>*:nth-child(3){transition-delay:.16s}.rv-stagger.in>*:nth-child(4){transition-delay:.24s}.rv-stagger.in>*:nth-child(5){transition-delay:.32s}.rv-stagger.in>*:nth-child(6){transition-delay:.4s}.rv-stagger.in>*:nth-child(7){transition-delay:.48s}.rv-stagger.in>*:nth-child(8){transition-delay:.56s}
+@media(prefers-reduced-motion:reduce){.rv,.rv-stagger>*{opacity:1;transform:none;transition:none}.marquee .track{animation:none}.scroll-hint span{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><img src="assets/logo-karmed.png" alt="KARMED" width="40" height="40"><span class="txt">KAR<b>MED</b></span></a>
+    <nav class="nav-links">
+      <a href="#ecossistema">Ecossistema</a>
+      <a href="#curso">O Curso</a>
+      <a href="#app">App e IA</a>
+      <a href="#docentes">Corpo Docente</a>
+      <a href="#planos">Planos</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <div style="display:flex;gap:12px;align-items:center">
+      <span class="tag-vagas"><i></i>12 vagas no lote</span>
+      <a href="#planos" class="btn btn-gold">Garantir minha vaga</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO SCROLL CINEMA -->
+<section class="sc-hero" id="top">
+  <div class="sc-sticky" id="sc-hero">
+    <div class="sc-progress" id="sc-progress"></div>
+    <video class="sc-video" id="sc-video" src="assets/hero.mp4" poster="assets/hero-poster.jpg" muted playsinline preload="auto"></video>
+    <canvas class="sc-canvas" id="sc-canvas"></canvas>
+    <div class="sc-shade"></div>
+    <div class="sc-grid"></div>
+
+    <div class="sc-ui">
+      <div class="sc-line" data-from="0" data-to="0.34">
+        <div class="inner">
+          <span class="kicker">Único curso do Brasil criado por intensivista + professor titular da UFF</span>
+          <h1>A emergência não avisa.</h1>
+          <p>Parada cardiorrespiratória, anafilaxia, hipoglicemia, crise convulsiva. Quando acontece na sua cadeira, você tem 3 minutos.</p>
+        </div>
+      </div>
+      <div class="sc-line" data-from="0.34" data-to="0.66">
+        <div class="inner">
+          <span class="kicker">O ecossistema KARMED</span>
+          <h1>Protocolo na cabeça. <em>Maleta</em> na mão.</h1>
+          <p>Mais de 10 anos de UTI traduzidos para o consultório odontológico, com revisão científica de professor titular da UFF e um app que te guia sob pressão.</p>
+        </div>
+      </div>
+      <div class="sc-line" data-from="0.66" data-to="1.01">
+        <div class="inner">
+          <span class="kicker">Curso + App com IA + Guia da maleta</span>
+          <h1>Preparo real. <em>Não sorte.</em></h1>
+          <p>Transforme o dentista despreparado em profissional pronto para agir em minutos.</p>
+          <div class="cta">
+            <a href="#planos" class="btn btn-gold">Garantir minha vaga</a>
+            <a href="#ecossistema" class="btn btn-line">Ver o ecossistema</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-hud">
+      <div class="inner">
+        <div class="cell"><div class="v clock" id="sc-clock">3:00</div><div class="k">tempo para agir</div></div>
+        <div class="cell"><div class="v">16</div><div class="k">módulos práticos</div></div>
+        <div class="cell"><div class="v">10+</div><div class="k">anos de UTI de alta complexidade</div></div>
+        <div class="cell">
+          <svg class="ecg" viewBox="0 0 520 44" preserveAspectRatio="none" aria-hidden="true">
+            <path class="ghost" d="M0 28 H50 L58 28 L64 12 L70 40 L76 28 H120 L128 28 L134 12 L140 40 L146 28 H190 L198 28 L204 12 L210 40 L216 28 H260 L268 28 L274 12 L280 40 L286 28 H330 L338 28 L344 12 L350 40 L356 28 H400 L408 28 L414 12 L420 40 L426 28 H470 L478 28 L484 12 L490 40 L496 28 H520"/>
+            <path id="sc-ecg" d="M0 28 H50 L58 28 L64 12 L70 40 L76 28 H120 L128 28 L134 12 L140 40 L146 28 H190 L198 28 L204 12 L210 40 L216 28 H260 L268 28 L274 12 L280 40 L286 28 H330 L338 28 L344 12 L350 40 L356 28 H400 L408 28 L414 12 L420 40 L426 28 H470 L478 28 L484 12 L490 40 L496 28 H520"/>
+          </svg>
+          <div class="k">o vídeo avança com o seu scroll</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint" id="sc-hint">Role para entrar<span></span></div>
+
+    <div class="sc-loader" id="sc-loader">
+      <div class="ld"><img src="assets/logo-karmed.png" alt=""><div class="bar"><i></i></div>Preparando</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
+
+<!-- PROBLEMA -->
+<section class="sec" id="problema">
+  <div class="wrap">
+    <div class="split">
+      <div class="rv">
+        <span class="label">01 / O problema que resolvemos</span>
+        <h2>O risco já está na sua rotina. O preparo, não.</h2>
+        <p class="lead" style="margin-top:var(--s-3)">A odontologia moderna expõe o profissional a um risco clínico crescente: procedimentos mais invasivos, sedação, pacientes com comorbidades complexas. Ao mesmo tempo, o preparo para emergências recebido na graduação segue raso, teórico e distante do consultório.</p>
+        <div class="pull">O KARMED nasce exatamente nesse gap: entre o risco que já existe na sua rotina e o preparo que você nunca teve.</div>
+        <div class="stats rv-stagger">
+          <div class="stat"><b><span class="count" data-to="16">0</span></b><span>módulos práticos</span></div>
+          <div class="stat"><b><span class="count" data-to="10">0</span><i>+</i></b><span>anos de UTI</span></div>
+          <div class="stat"><b><span class="count" data-to="100">0</span><i>%</i></b><span>prático</span></div>
+        </div>
+      </div>
+      <div class="gapbox rv" id="gap">
+        <span class="label">A distância</span>
+        <h3>Risco clínico vs. preparo recebido</h3>
+        <div class="meter risk"><div class="lb"><span>Risco clínico no consultório</span><span>alto</span></div><div class="bar"><i data-w="92"></i></div></div>
+        <div class="meter prep"><div class="lb"><span>Preparo recebido na graduação</span><span>baixo</span></div><div class="bar"><i data-w="18"></i></div></div>
+        <p>Quando a emergência acontece, essa distância é medida em minutos. O curso existe para fechá-la antes que ela custe caro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSSISTEMA -->
+<section class="sec white" id="ecossistema">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">02 / O ecossistema</span><h2>Três frentes, um único objetivo: <em>te preparar.</em></h2></div>
+      <p class="lead">Não é um curso solto. É estudo, ferramenta na mão e o consultório equipado, funcionando juntos.</p>
+    </div>
+    <div class="cards rv-stagger">
+      <div class="card">
+        <span class="num">01</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <h3>O Curso</h3>
+        <p>16 módulos práticos, do reconhecimento à ação, protocolo por protocolo. Aulas gravadas, casos reais, checklists imprimíveis e simulações de decisão sob pressão.</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="1"/><path d="M12 18h.01"/></svg></div>
+        <h3>App + IA clínica</h3>
+        <p>O único curso do Brasil com aplicativo próprio e IA de apoio à decisão. Protocolos, checklists guiados e calculadora de dose, funcionando offline.</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M12 11v6M9 14h6"/></svg></div>
+        <h3>Maleta de emergência</h3>
+        <p>Guia completo com checklist de materiais e medicamentos para montar (e manter) a maleta obrigatória do seu consultório, conforme a Resolução CFO nº 115/2011.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O CURSO -->
+<section class="sec dark" id="curso">
+  <div class="wrap">
+    <div class="split" style="align-items:start">
+      <div class="rv">
+        <span class="label">03 / O curso</span>
+        <h2>16 módulos. Do reconhecimento <em>à ação.</em></h2>
+        <p class="lead" style="margin-top:var(--s-3)">Cada módulo segue a mesma lógica da UTI: reconhecer em segundos, decidir com protocolo, agir com o que está na maleta. O conteúdo é organizado em cinco frentes.</p>
+        <ul class="check">
+          <li>Aulas gravadas, objetivas e diretas ao ponto</li>
+          <li>Protocolos passo a passo para cada emergência</li>
+          <li>Casos clínicos reais analisados em detalhe</li>
+          <li>Checklists imprimíveis para consulta rápida</li>
+          <li>Simulações de decisão sob pressão</li>
+          <li>Aspectos legais: Resolução CFO nº 115/2011, omissão de socorro e responsabilidade profissional</li>
+        </ul>
+        <p class="small-note">100% online e assíncrono, acesso vitalício, compatível com celular e certificado de conclusão.</p>
+        <a href="#planos" class="btn btn-gold" style="margin-top:var(--s-4)">Quero acesso ao curso</a>
+      </div>
+      <div>
+        <div class="areas rv-stagger">
+          <div class="area"><span class="sq" style="background:var(--gold)"></span><div><h4>Legal e Preventivo</h4><p>Responsabilidade profissional, materiais obrigatórios e a anamnese que evita a emergência.</p></div><span class="n">3 módulos</span></div>
+          <div class="area"><span class="sq" style="background:var(--red)"></span><div><h4>Cardiovascular</h4><p>Síncope, hipotensão, hipertensão, dor torácica e parada cardiorrespiratória.</p></div><span class="n">5 módulos</span></div>
+          <div class="area"><span class="sq" style="background:#9C8CF5"></span><div><h4>Metabólico e Neurológico</h4><p>Ansiedade e pânico, hipoglicemia e crise convulsiva.</p></div><span class="n">3 módulos</span></div>
+          <div class="area"><span class="sq" style="background:var(--teal)"></span><div><h4>Respiratório</h4><p>Asma, reações de hipersensibilidade e obstrução de vias aéreas.</p></div><span class="n">3 módulos</span></div>
+          <div class="area"><span class="sq" style="background:#F08A4B"></span><div><h4>Procedimentos</h4><p>Hemorragias e acessos vasculares, com a técnica de quem faz isso todo dia.</p></div><span class="n">2 módulos</span></div>
+        </div>
+        <p class="small-note">O programa completo, módulo a módulo, é liberado na área do aluno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP -->
+<section class="sec" id="app">
+  <div class="wrap">
+    <div class="split">
+      <div class="rv">
+        <div class="phone" aria-hidden="true">
+          <div class="t"><span>KARMED</span><span>Offline ok</span></div>
+          <div class="h">Paciente com sudorese, tremor e confusão</div>
+          <div class="al"><b>HIPÓTESE MAIS PROVÁVEL</b>Hipoglicemia. Confirmar com glicosímetro.</div>
+          <div class="st done"><i>1</i>Interromper o procedimento e posicionar o paciente</div>
+          <div class="st done"><i>2</i>Aferir glicemia capilar</div>
+          <div class="st"><i>3</i>Glicose 50% conforme cálculo abaixo</div>
+          <div class="ds">Dose calculada para 72 kg<b>Glicose 50% · 30 mL EV</b></div>
+          <div class="f"><span>Apoio à decisão</span><span>Registrar</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="rv">
+          <span class="label">04 / App e IA clínica</span>
+          <h2>Sob pressão, o protocolo some. O app é o <em>co-piloto.</em></h2>
+          <p class="lead" style="margin-top:var(--s-3)">Você descreve os sinais observados; a IA cruza com os protocolos validados pelo corpo docente e sugere as hipóteses mais prováveis e a sequência de conduta. Apoio à decisão, nunca diagnóstico automático.</p>
+        </div>
+        <div class="feat rv-stagger">
+          <div class="f"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></i><div><h4>Checklists interativos guiados</h4><p>Fluxogramas passo a passo que se adaptam às suas respostas.</p></div></div>
+          <div class="f"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20"/><path d="M8 6h8M8 10h8M8 14h4M8 18h4"/></svg></i><div><h4>Cálculo de dosagens por peso</h4><p>Adrenalina, glicose e outras medicações de emergência sem erro de conta sob estresse.</p></div></div>
+          <div class="f"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l22 22"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.58 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><path d="M12 20h.01"/></svg></i><div><h4>Funciona offline</h4><p>Protocolos e calculadora sem internet, porque emergência não espera sinal de Wi-Fi.</p></div></div>
+          <div class="f"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.22-8.56"/><path d="M21 3v6h-6"/></svg></i><div><h4>Base sempre atualizada</h4><p>A mesma base científica do curso, revisada periodicamente pelo corpo docente.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="steps rv-stagger">
+      <div class="s"><b>PASSO 01</b>Abrir o app</div>
+      <div class="s"><b>PASSO 02</b>Descrever a situação ou selecionar o protocolo</div>
+      <div class="s"><b>PASSO 03</b>Seguir o checklist guiado</div>
+      <div class="s"><b>PASSO 04</b>Registrar o atendimento</div>
+    </div>
+    <p class="small-note">O app é uma ferramenta de apoio e organização da conduta. Não substitui a formação do profissional nem a avaliação clínica presencial.</p>
+  </div>
+</section>
+
+<!-- DOCENTES -->
+<section class="sec white" id="docentes">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">05 / Corpo docente</span><h2>A combinação de autoridade que não existe em nenhum outro produto <em>do Brasil.</em></h2></div>
+      <p class="lead">Médico intensivista, professor titular de universidade federal, especialista em acessos vasculares e advogado de Direito Médico. Cada módulo sensível é assinado pelo especialista da área.</p>
+    </div>
+    <div class="docs rv-stagger">
+      <div class="doc">
+        <div class="ph"><img src="assets/docentes/schostney-castro.jpg" alt="Dr. Schostney Castro" loading="lazy"></div>
+        <div class="bd">
+          <h3>Dr. Schostney Castro</h3>
+          <div class="role">Médico Intensivista · Fundador EFATÁ Healthtech · CRM-RJ 52-98350-0</div>
+          <p>Mais de 10 anos em UTI de alta complexidade, decidindo em cenários de alto risco. Idealizador do KARMED e responsável pelo conteúdo clínico.</p>
+          <div class="tags"><span>UTI 10+ anos</span><span>Nutrologia</span><span>EFATÁ Healthtech</span></div>
+        </div>
+      </div>
+      <div class="doc">
+        <div class="ph"><img src="assets/docentes/claudio-loredo.jpg" alt="Prof. Dr. Claudio Loredo de Sá" loading="lazy"></div>
+        <div class="bd">
+          <h3>Prof. Dr. Claudio Loredo de Sá</h3>
+          <div class="role">Professor Titular UFF · Doutor em Urgências e Emergências Odontológicas · Pneumologia</div>
+          <p>Maior referência acadêmica nacional em emergências odontológicas. Responsável pela revisão científica integral do curso e do app.</p>
+          <div class="tags"><span>UFF Titular</span><span>Doutor UrEm Odonto</span><span>Pneumologista</span></div>
+        </div>
+      </div>
+      <div class="doc">
+        <div class="ph"><img src="assets/docentes/schostilaine-castro.jpg" alt="Dra. Schostilaine Castro" loading="lazy"></div>
+        <div class="bd">
+          <h3>Dra. Schostilaine Castro</h3>
+          <div class="role">Enfermeira · Mestre pela UNIRIO · Comissão de Acessos Vasculares do Instituto Nacional de Cardiologia</div>
+          <p>Atua no Ministério da Saúde com foco em terapia infusional e segurança em acessos venosos. Responsável pela aula de Acessos Vasculares.</p>
+          <div class="tags"><span>UERJ/UNIRIO</span><span>Ministério da Saúde</span><span>Terapia Infusional</span></div>
+        </div>
+      </div>
+      <div class="doc">
+        <div class="ph"><img src="assets/docentes/leonardo-martins.jpg" alt="Dr. Leonardo Martins" loading="lazy"></div>
+        <div class="bd">
+          <h3>Dr. Leonardo Martins</h3>
+          <div class="role">Advogado · Especialista em Direito Médico</div>
+          <p>Traduz para o dentista, em linguagem acessível, os limites de responsabilidade profissional, a omissão de socorro e as bases legais do atendimento de emergência.</p>
+          <div class="tags"><span>Direito Médico</span><span>Responsabilidade Profissional</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="validation rv">
+      <div class="seal">CONTEÚDO<br>VALIDADO<br>2026</div>
+      <div>
+        <h3>Como o conteúdo é validado</h3>
+        <p>Conteúdo clínico pelo Dr. Schostney Castro, revisão acadêmica pelo Prof. Dr. Claudio Loredo de Sá, legislação pelo Dr. Leonardo Martins e acessos vasculares pela Dra. Schostilaine Castro. Protocolos baseados em diretrizes atuais, com atualização periódica. Nenhum conteúdo genérico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="sec" id="para-quem">
+  <div class="wrap">
+    <div class="split">
+      <div class="rv">
+        <span class="label">06 / Para quem é</span>
+        <h2>Para quem atende, e para quem apoia <em>quem atende.</em></h2>
+        <p class="lead" style="margin-top:var(--s-3)">Não precisa de formação médica. O conteúdo foi desenhado para cirurgiões-dentistas, com linguagem clara e protocolos práticos, sem jargão desnecessário.</p>
+      </div>
+      <div class="aud rv-stagger">
+        <div><i>01</i><span>Cirurgiões-dentistas generalistas e especialistas</span></div>
+        <div><i>02</i><span>Clínicas e consultórios odontológicos</span></div>
+        <div><i>03</i><span>Estudantes de odontologia em fase final</span></div>
+        <div><i>04</i><span>Equipe auxiliar (ASB/TSB) que apoia os protocolos</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANCORAGEM -->
+<section class="sec dark" id="custo">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">07 / Ancoragem de valor</span><h2>Quanto custa <em>não</em> estar preparado?</h2></div>
+      <p class="lead">Compare com o custo de uma única ação por negligência ou omissão de socorro. O investimento no KARMED é uma fração do risco financeiro e reputacional.</p>
+    </div>
+    <div class="anchor rv-stagger">
+      <div class="row"><span>Consulta jurídica por negligência</span><b>R$ 800 – R$ 3.000+</b></div>
+      <div class="row"><span>Ação judicial por omissão de socorro</span><b>R$ 15.000 – R$ 100.000+</b></div>
+      <div class="row"><span>Curso de BLS presencial genérico</span><b>R$ 900 – R$ 1.500</b></div>
+      <div class="row win"><span>Investimento no KARMED COMPLETO (curso + app por 12 meses)</span><b>R$ 1.497,00</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="sec" id="planos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">08 / Planos</span><h2>Escolha sua entrada no <em>ecossistema.</em></h2></div>
+      <p class="lead"><span class="tag-vagas" style="display:inline-flex;color:var(--gold-deep);border-color:rgba(201,162,39,.5)"><i style="background:var(--gold-deep)"></i>12 vagas restantes no lote atual</span></p>
+    </div>
+    <div class="plans rv-stagger">
+      <div class="plan">
+        <h3>Curso Avançado</h3>
+        <p class="desc">A porta de entrada para o preparo real em emergências médicas.</p>
+        <div><div class="price"><small>R$</small>997<em>,00</em></div><div class="sub">Preço de lançamento · vagas limitadas</div></div>
+        <ul class="check">
+          <li>16 módulos completos</li>
+          <li>E-book da matéria</li>
+          <li>Checklist de PCR</li>
+          <li>Checklist da Maleta de Emergência</li>
+          <li>30 dias grátis do App KARMED</li>
+          <li>Certificado de conclusão</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+        <a class="btn btn-line-ink" href="https://wa.me/5521972109070?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20Curso%20Avan%C3%A7ado%20do%20KARMED." target="_blank" rel="noopener">Quero o Curso Avançado</a>
+      </div>
+      <div class="plan hot">
+        <span class="badge">MAIS ESCOLHIDO</span>
+        <h3>KARMED COMPLETO</h3>
+        <p class="desc">Curso + App KARMED com IA por 12 meses. Todo o ecossistema em uma única entrada.</p>
+        <div><div class="price"><small>R$</small>1.497<em>,00</em></div><div class="sub">Economia frente à compra separada</div></div>
+        <ul class="check">
+          <li>Tudo do Curso Avançado</li>
+          <li>App KARMED com IA por 12 meses completos</li>
+          <li>Acesso prioritário a atualizações</li>
+          <li>Comunidade exclusiva</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+        <a class="btn btn-gold" href="https://wa.me/5521972109070?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20KARMED%20COMPLETO%20do%20KARMED." target="_blank" rel="noopener">Quero o KARMED COMPLETO</a>
+      </div>
+      <div class="plan">
+        <h3>Apenas o App</h3>
+        <p class="desc">IA clínica de apoio à decisão no seu bolso.</p>
+        <div><div class="price"><small>R$</small>59<em>/mês</em></div><div class="sub">ou R$ 590,00/ano com desconto</div></div>
+        <ul class="check">
+          <li>IA clínica em tempo real</li>
+          <li>Checklists interativos</li>
+          <li>Funciona offline</li>
+          <li>Atualizações contínuas</li>
+        </ul>
+        <a class="btn btn-line-ink" href="https://wa.me/5521972109070?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20App%20KARMED%20(mensal)%20do%20KARMED." target="_blank" rel="noopener">Quero o App KARMED</a>
+      </div>
+    </div>
+    <div class="guarantee rv-stagger">
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></i>Garantia incondicional de 7 dias</div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></i>Acesso vitalício ao curso</div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5"/></svg></i>Certificado de conclusão</div>
+    </div>
+    <div class="updates rv">
+      <div><b>2026-06</b><span>Novo módulo de Acessos Vasculares incorporado sem custo adicional.</span></div>
+      <div><b>2026-04</b><span>Atualização dos protocolos de RCP conforme diretrizes mais recentes.</span></div>
+      <div><b>2026-02</b><span>App KARMED: nova calculadora de dosagens por peso.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec white" id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">09 / Dúvidas</span><h2>Tire suas dúvidas <em>antes de decidir.</em></h2></div>
+      <p class="lead">Não encontrou sua resposta? Fale direto com nosso time no WhatsApp. Respondemos rápido.</p>
+    </div>
+    <div class="faq rv-stagger">
+      <details><summary><span class="n">01</span>Nunca tive uma emergência no consultório, preciso mesmo disso?</summary><p>A maioria dos dentistas nunca teve uma emergência grave, até o dia em que tem. O curso existe justamente para o cenário de baixa frequência e alto risco: quando acontece, não há tempo para improvisar.</p></details>
+      <details><summary><span class="n">02</span>Eu já faço BLS, isso já não é suficiente?</summary><p>O BLS cobre reanimação básica de forma genérica. O KARMED vai além: protocolos específicos para o consultório odontológico, incluindo cenários exclusivos da prática como reações a anestésicos e sedação.</p></details>
+      <details><summary><span class="n">03</span>O preço é alto para um curso online?</summary><p>Compare com o custo de uma única ação por negligência ou omissão de socorro. O investimento no KARMED é uma fração do risco financeiro e reputacional de não estar preparado.</p></details>
+      <details><summary><span class="n">04</span>Não tenho tempo para fazer um curso agora.</summary><p>O curso é 100% assíncrono e cada módulo é objetivo e direto ao ponto. Você estuda no seu ritmo, do celular, com acesso vitalício.</p></details>
+      <details><summary><span class="n">05</span>Preciso ter formação médica para entender o conteúdo?</summary><p>Não. O conteúdo foi desenhado especificamente para cirurgiões-dentistas, com linguagem clara e protocolos práticos, sem jargão médico desnecessário.</p></details>
+      <details><summary><span class="n">06</span>Confio em app de IA para uma situação crítica?</summary><p>A IA do app é apoio à decisão, nunca diagnóstico automático. Ela organiza o protocolo já validado pelo corpo docente para que você aja com clareza sob pressão. A decisão final é sempre do profissional.</p></details>
+      <details><summary><span class="n">07</span>E se eu nunca precisar usar o que aprendi?</summary><p>Ótimo, significa que sua carreira transcorreu sem incidentes graves. Mesmo assim, você seguirá com um diferencial de segurança para pacientes, equipe e para a sua tranquilidade profissional.</p></details>
+      <details><summary><span class="n">08</span>Como recebo o acesso após a compra?</summary><p>O acesso é liberado na área do aluno logo após a confirmação do pagamento, com login para o curso e instruções de instalação do app. Qualquer dúvida, nosso time responde no WhatsApp.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="sec final" id="cta">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap rv">
+    <span class="label">Última chamada do lote</span>
+    <h2>A próxima emergência não vai perguntar se você <em>fez o curso.</em></h2>
+    <p class="lead">Entre no ecossistema KARMED hoje e leve o rigor da UTI para o seu consultório.</p>
+    <div class="cta">
+      <a href="#planos" class="btn btn-gold">Garantir minha vaga</a>
+      <a class="btn btn-wa" href="https://wa.me/5521972109070?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20KARMED." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.1.7a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.2-.2-.2-.5-.4z"/></svg>Falar no WhatsApp</a>
+    </div>
+    <p class="small-note" style="color:var(--cream-50)">Seg. a Sex., 9h às 18h · contato@karmed.com.br</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand"><img src="assets/logo-karmed-white.png" alt="KARMED">KAR<b>MED</b></a>
+    <div>WhatsApp (21) 97210-9070 · contato@karmed.com.br</div>
+    <div>© 2026 KARMED · Todos os direitos reservados</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5521972109070?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20KARMED." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.1.7a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.2-.2-.2-.5-.4z"/></svg></a>
+
+<script>
+/* ===== helpers (declarados antes de qualquer bind) ===== */
+var clamp = function(v,a,b){ return Math.min(b, Math.max(a, v)); };
+var pad   = function(n){ return (n<10?'0':'')+n; };
+var pad3  = function(n){ return (n<10?'00':n<100?'0':'')+n; };
+
+/* ===== marquee ===== */
+(function(){
+  var items = ['Parada Cardiorrespiratória','Anafilaxia','Hipoglicemia','Crise Convulsiva','Síncope e Lipotimia','Crise de Asma','Obstrução de Vias Aéreas','Dor Torácica / IAM','Hipertensão Arterial','Crise de Ansiedade e Pânico','Hemorragias','Acessos Vasculares'];
+  var track = document.getElementById('mq'); var html='';
+  for (var r=0;r<2;r++) items.forEach(function(t){ html += '<span>'+t+'</span>'; });
+  track.innerHTML = html;
+})();
+
+/* ===== nav ===== */
+(function(){
+  var nav = document.getElementById('nav');
+  function upd(){ nav.classList.toggle('is-solid', window.scrollY > 40); }
+  window.addEventListener('scroll', upd, {passive:true}); upd();
+})();
+
+/* ===== HERO SCROLL BINDING (vídeo, com fallback automático para sequência de quadros) ===== */
+(function(){
+  var section = document.querySelector('.sc-hero');
+  var video   = document.getElementById('sc-video');
+  var canvas  = document.getElementById('sc-canvas');
+  var ctx     = canvas.getContext('2d');
+  var loader  = document.getElementById('sc-loader');
+  var clock   = document.getElementById('sc-clock');
+  var ecg     = document.getElementById('sc-ecg');
+  var prog    = document.getElementById('sc-progress');
+  var hint    = document.getElementById('sc-hint');
+  var lines   = Array.prototype.slice.call(document.querySelectorAll('.sc-line'));
+  var ECG_LEN = ecg.getTotalLength();
+  ecg.style.strokeDasharray = ECG_LEN; ecg.style.strokeDashoffset = ECG_LEN;
+
+  var duration = 0, ready = false, target = 0, ticking = false, lastT = -1, firstSeekAt = 0;
+
+  /* --- modo quadros (fallback): assets/frames/f_001.webp ... f_096.webp --- */
+  var FRAMES_N = 96, FRAMES_DIR = 'assets/frames/', frames = [], framesMode = false, lastFrame = -1;
+  function startFramesMode(){
+    if (framesMode) return; framesMode = true;
+    video.style.display = 'none'; canvas.style.display = 'block';
+    for (var i=1;i<=FRAMES_N;i++) (function(i){
+      var im = new Image(); im.decoding = 'async';
+      im.onload = function(){ if (i===1){ canvas.classList.add('is-ready'); markReady(); } lastFrame = -1; apply(); };
+      im.src = FRAMES_DIR + 'f_' + pad3(i) + '.webp'; frames[i] = im;
+    })(i);
+  }
+  function loadedFrame(i){ var im = frames[i]; return (im && im.complete && im.naturalWidth) ? im : null; }
+  function drawFrame(i){
+    var im = loadedFrame(i);
+    if (!im){ for (var d=1; d<FRAMES_N && !im; d++){ im = loadedFrame(i-d) || loadedFrame(i+d); } if (!im) return; }
+    var dpr = Math.min(window.devicePixelRatio||1, 2);
+    var W = Math.round(canvas.clientWidth*dpr), H = Math.round(canvas.clientHeight*dpr);
+    if (canvas.width !== W || canvas.height !== H){ canvas.width = W; canvas.height = H; }
+    var s = Math.max(W/im.naturalWidth, H/im.naturalHeight), w = im.naturalWidth*s, h = im.naturalHeight*s;
+    ctx.drawImage(im, (W-w)/2, (H-h)/2, w, h);
+  }
+
+  if (video.readyState >= 1 && video.duration) duration = video.duration;
+  function markReady(){
+    if (ready) return; ready = true;
+    duration = video.duration || duration || 0;
+    if (!framesMode) video.classList.add('is-ready');
+    loader.classList.add('is-gone'); onScroll();
+  }
+  video.addEventListener('loadedmetadata', function(){ duration = video.duration; });
+  video.addEventListener('canplaythrough', markReady);
+  video.addEventListener('error', startFramesMode);
+  /* rede lenta ou servidor sem Range: mostra assim mesmo; se o vídeo não decodificou, vai para quadros */
+  setTimeout(function(){ if (!ready){ if (video.readyState >= 3 && video.duration) markReady(); else startFramesMode(); } }, 6000);
+
+  function onScroll(){
+    var rect = section.getBoundingClientRect();
+    var scrollable = section.offsetHeight - window.innerHeight;
+    var p = scrollable > 0 ? -rect.top / scrollable : 0;
+    target = clamp(p, 0, 1);
+    if (document.hidden) apply(); else if (!ticking){ ticking = true; requestAnimationFrame(apply); }
+  }
+  function apply(){
+    ticking = false;
+    var p = target;
+    if (framesMode){
+      var fi = 1 + Math.round(p * (FRAMES_N-1));
+      if (fi !== lastFrame){ lastFrame = fi; drawFrame(fi); }
+    } else if (duration){
+      var t = p * duration;
+      if (Math.abs(t-lastT) > 0.004){ video.currentTime = t; lastT = t; }
+      /* vigia: o scroll pede avanço e o vídeo não obedece (servidor sem Range, codec, preview embutido) -> quadros */
+      if (p > 0.06){ if (!firstSeekAt) firstSeekAt = Date.now(); else if (Date.now()-firstSeekAt > 1800 && video.currentTime < 0.05) startFramesMode(); }
+    }
+    var secs = Math.round(180 * (1 - p)); clock.textContent = Math.floor(secs/60)+':'+pad(secs%60);
+    clock.classList.toggle('alert', secs <= 30 && secs > 0);
+    if (secs === 0){ clock.textContent = 'PRONTO'; clock.classList.remove('alert'); }
+    ecg.style.strokeDashoffset = ECG_LEN * (1 - p);
+    prog.style.width = (p*100)+'%';
+    hint.style.opacity = p > 0.03 ? 0 : 1;
+    lines.forEach(function(el){
+      var a = parseFloat(el.dataset.from), b = parseFloat(el.dataset.to);
+      var on = p >= a && p < b; el.classList.toggle('on', on);
+      var edge = 0.05, o = 1, y = 0;
+      if (on){ if (p < a+edge && a>0) { o = (p-a)/edge; y = (1-o)*24; } else if (p > b-edge && b<1){ o = (b-p)/edge; y = -(1-o)*24; } }
+      el.style.opacity = on ? o : 0; el.style.transform = 'translateY(calc(-50% + '+y+'px))';
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', function(){ lastFrame = -1; onScroll(); });
+  document.addEventListener('visibilitychange', onScroll);
+  onScroll();
+})();
+
+/* ===== reveals, contadores, medidores ===== */
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in'); io.unobserve(e.target);
+      e.target.querySelectorAll('.count').forEach(function(c){
+        var to = parseInt(c.dataset.to,10), t0 = null;
+        if (reduce){ c.textContent = to; return; }
+        function step(ts){ if(!t0) t0 = ts; var k = clamp((ts-t0)/1400,0,1); k = 1-Math.pow(1-k,3); c.textContent = Math.round(to*k); if (k<1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+      });
+      e.target.querySelectorAll('.meter .bar i').forEach(function(b){ b.style.width = b.dataset.w+'%'; });
+    });
+  }, {threshold: .15});
+  document.querySelectorAll('.rv, .rv-stagger').forEach(function(el){ io.observe(el); });
+})();
+
+/* ===== FAQ: um aberto por vez ===== */
+(function(){
+  var all = document.querySelectorAll('.faq details');
+  all.forEach(function(d){ d.addEventListener('toggle', function(){ if (d.open) all.forEach(function(o){ if (o!==d) o.open = false; }); }); });
+})();
+</script>
+</body>
+</html>
