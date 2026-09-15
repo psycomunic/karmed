@@ -327,10 +327,10 @@ strong{font-weight:700}
 /* ===== docentes: o retrato ocupa o card, o texto vive sobre o degrade ===== */
 .doc{position:relative;padding:0;overflow:hidden;aspect-ratio:5/8;display:block;isolation:isolate}
 .doc .ph{position:absolute;inset:0;overflow:hidden}
-.doc .ph img{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:saturate(.5) brightness(.78) contrast(1.06);transition:transform .9s var(--ease),filter .6s var(--ease)}
-.doc:hover .ph img{transform:scale(1.06);filter:saturate(.74) brightness(.9) contrast(1.06)}
+.doc .ph img{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:saturate(.56) brightness(.84) contrast(1.04);transition:transform .9s var(--ease),filter .6s var(--ease)}
+.doc:hover .ph img{transform:scale(1.06);filter:saturate(.78) brightness(.94) contrast(1.04)}
 /* halo atras da pessoa: unifica fotos de origens e fundos diferentes */
-.doc .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(212,175,55,.34) 0%,rgba(212,175,55,.1) 16%,transparent 32%);mix-blend-mode:screen;opacity:.9;transition:opacity .6s var(--ease)}
+.doc .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(115% 78% at 50% 26%,transparent 38%,rgba(6,13,29,.5) 100%);opacity:1;transition:opacity .6s var(--ease)}
 .doc:hover .ph::after{opacity:1}
 /* degrade que sustenta a leitura do texto */
 .doc::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,13,29,.22) 0%,rgba(6,13,29,0) 30%,rgba(6,13,29,.72) 62%,rgba(6,13,29,.96) 100%)}
