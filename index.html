@@ -343,7 +343,6 @@ strong{font-weight:700}
 .doc .cred{font-size:.6rem;line-height:1.45;color:var(--w-40);font-weight:400;margin-top:7px;padding-top:7px;border-top:1px solid var(--glass-line)}
 .doc:hover .reveal,.doc:focus-within .reveal{grid-template-rows:1fr;opacity:1}
 @media (hover:none){.doc .reveal{grid-template-rows:1fr;opacity:1}}
-.dark .valid .seal{color:var(--gold-lite)}
 .dark .valid p{color:var(--w-80)}
 .dark .valid p strong{color:var(--white)}
 .dark .aud>div i{background:var(--gold-grad);color:var(--navy)}
@@ -351,7 +350,8 @@ strong{font-weight:700}
 .doc p{font-size:.76rem;line-height:1.5;color:var(--w-60);font-weight:300;margin-top:7px}
 .valid{margin-top:var(--s-5);padding:var(--s-4);display:grid;gap:var(--s-3);align-items:center}
 @media(min-width:900px){.valid{grid-template-columns:auto 1fr;gap:var(--s-5)}}
-.valid .seal{width:112px;height:112px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;text-align:center;font-size:.6rem;font-weight:700;letter-spacing:.16em;color:var(--gold-ink);line-height:1.6;background:radial-gradient(circle,rgba(212,175,55,.25),transparent 70%)}
+.valid .seal{width:clamp(116px,13vw,148px);height:auto;display:block;justify-self:center;filter:drop-shadow(0 14px 28px rgba(0,0,0,.45)) drop-shadow(0 0 22px rgba(212,175,55,.22));transition:transform .5s var(--ease)}
+.valid:hover .seal{transform:rotate(-4deg) scale(1.04)}
 .valid p{color:var(--muted);font-weight:300;margin-top:6px}
 .valid p strong{font-weight:600;color:var(--ink)}
 
@@ -737,7 +737,7 @@ footer .brand img{width:32px;height:32px}
       <div class="glass card doc"><div class="ph"><img src="assets/docentes/leonardo-martins.jpg" alt="Dr. Leonardo Martins" loading="lazy"></div><div class="bd"><h3>Dr. Leonardo Martins</h3><div class="role">Advogado</div><div class="reveal"><div><div class="cred">Especialista em Direito Médico</div><p>Traduz para o dentista os limites de responsabilidade profissional, a omissão de socorro e as bases legais do atendimento de emergência.</p></div></div></div></div>
     </div>
     <div class="glass static valid rv">
-      <div class="seal">CONTEÚDO<br>VALIDADO<br>2026</div>
+      <img class="seal" src="assets/selo.png" alt="Selo: conteúdo validado em 2026" width="712" height="709" loading="lazy">
       <div><h3>Como o conteúdo é validado</h3><p><strong>Conteúdo clínico</strong> pelo Dr. Schostney Castro, <strong>revisão acadêmica</strong> pelo Prof. Dr. Claudio Loredo de Sá, <strong>legislação</strong> pelo Dr. Leonardo Martins e <strong>acessos vasculares</strong> pela Dra. Schostilaine Castro. Protocolos baseados em diretrizes atuais, com atualização periódica. Nenhum conteúdo genérico.</p></div>
     </div>
   </div>
