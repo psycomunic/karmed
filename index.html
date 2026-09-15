@@ -399,6 +399,35 @@ footer .brand img{width:32px;height:32px}
 .no-io .rv,.no-io .rv-stagger>*{opacity:1;transform:none}
 [data-parallax]{will-change:transform}
 @media(prefers-reduced-motion:reduce){.rv,.rv-stagger>*{opacity:1;transform:none;transition:none}.marquee .track{animation:none}.scroll-hint span{animation:none}[data-parallax]{transform:none!important}}
+/* ===== telas baixas: a cena presa nao cabe em 100vh =====
+   A coluna de texto do App pede 835px e a da Maleta 771px. Em qualquer
+   viewport mais curto que isso o overflow:hidden do .sticky cortava o
+   ultimo passo. Aqui o ritmo vertical e comprimido; abaixo de 700px de
+   altura a cena deixa de ser presa e volta a fluir, para nao cortar nada. */
+@media(max-height:900px) and (min-width:960px){
+  .app-scene .grid2,.maleta-scene .inner{padding-top:78px;padding-bottom:20px}
+  .app-scene h2,.maleta-scene h2{font-size:clamp(1.4rem,2.1vw,1.85rem)}
+  .app-scene .lead,.maleta-scene .lead{font-size:.93rem;line-height:1.5;margin-top:14px}
+  .app-scene .steps{margin-top:16px;gap:7px}
+  .step{padding:9px 16px}
+  .step .n{width:38px;height:38px;border-radius:12px}
+  .step p{font-size:.8rem}
+  .step-bar{margin-top:13px}
+}
+@media(max-height:820px) and (min-width:960px){
+  .app-scene .grid2,.maleta-scene .inner{padding-top:70px;padding-bottom:14px}
+  .app-scene .steps{gap:6px}
+  .step{padding:7px 14px}
+  .step .n{width:34px;height:34px;border-radius:11px}
+  .app-scene .lead,.maleta-scene .lead{font-size:.88rem;margin-top:12px}
+}
+@media(max-height:700px) and (min-width:960px){
+  .app-scene,.maleta-scene{height:auto}
+  .app-scene>.sticky,.maleta-scene>.sticky{position:relative;height:auto}
+  .app-scene .grid2,.maleta-scene .inner{padding-top:var(--s-7);padding-bottom:var(--s-7)}
+  .step{opacity:1;transform:none}
+  .kit li{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
