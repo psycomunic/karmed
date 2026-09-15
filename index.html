@@ -282,13 +282,23 @@ strong{font-weight:700}
 .box video.is-ready,.box canvas.is-ready{opacity:1}
 .box canvas{display:none}
 .box .tag{position:absolute;left:16px;top:16px;z-index:3;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--white);padding:8px 12px;border-radius:var(--r-pill);background:rgba(8,19,40,.5);border:1px solid var(--glass-line);backdrop-filter:blur(10px)}
-.box .cnt{position:absolute;right:16px;bottom:16px;z-index:3;padding:10px 14px;border-radius:14px;background:rgba(8,19,40,.55);border:1px solid var(--glass-line);backdrop-filter:blur(10px);color:var(--white);font-weight:800;font-size:clamp(1rem,4cqw,1.6rem);line-height:1;font-variant-numeric:tabular-nums}
-.box .cnt small{display:block;font-size:.55rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--w-60);margin-top:4px}
-.kit{list-style:none;display:grid;gap:10px;margin-top:var(--s-3)}
-.kit li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:center;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.5);border:1px solid var(--glass-light-line);font-size:.92rem;font-weight:500;opacity:.4;transform:translateX(-6px);transition:opacity .4s,transform .4s var(--ease),background .4s}
-.kit li.on{opacity:1;transform:none;background:rgba(255,255,255,.85)}
-.kit li::before{content:"✓";width:24px;height:24px;border-radius:50%;background:var(--mist);color:var(--muted);display:grid;place-items:center;font-size:11px;font-weight:800;transition:background .4s,color .4s}
-.kit li.on::before{background:var(--gold-grad);color:var(--navy)}
+/* maleta: o checklist e conferido item a item conforme a maleta abre */
+.kitpanel{margin-top:var(--s-4);border:1px solid var(--glass-line);border-radius:var(--r);background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden}
+.kithead{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);padding:13px var(--s-3);border-bottom:1px solid var(--glass-line)}
+.kitcap{font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lite)}
+.kitcount{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--w-40);white-space:nowrap}
+.kitcount b{font-size:1.05rem;font-weight:800;color:var(--white);font-variant-numeric:tabular-nums;margin-right:2px}
+.kit{list-style:none;margin:0}
+.kit li{display:grid;grid-template-columns:22px 26px 1fr;gap:12px;align-items:center;padding:12px var(--s-3);border-bottom:1px solid var(--glass-line);font-size:.9rem;font-weight:500;color:var(--w-60);transition:color .45s var(--ease),background .45s var(--ease)}
+.kit li:last-child{border-bottom:0}
+.kit li.on{color:var(--white);background:rgba(255,255,255,.045)}
+.kit li::before{content:"✓";grid-column:1;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:800;background:rgba(255,255,255,.07);color:rgba(255,255,255,.28);transition:background .45s var(--ease),color .45s,transform .45s var(--ease)}
+.kit li.on::before{background:var(--gold-grad);color:var(--navy);transform:scale(1.08)}
+.kit li .n{grid-column:2;font-size:.66rem;font-weight:700;letter-spacing:.1em;color:var(--w-40);font-variant-numeric:tabular-nums;transition:color .45s}
+.kit li.on .n{color:var(--gold-lite)}
+.kit li .t{grid-column:3}
+.kitbar{height:3px;background:rgba(255,255,255,.07)}
+.kitbar i{display:block;height:100%;width:0;background:var(--gold-grad);transition:width .5s var(--ease)}
 @media(max-width:959px){.maleta-scene{height:auto}.maleta-scene>.sticky{position:relative;height:auto}.kit li{opacity:1;transform:none}.kit li::before{background:var(--gold-grad);color:var(--navy)}}
 
 /* curso */
@@ -327,10 +337,6 @@ strong{font-weight:700}
 .dark .valid p{color:var(--w-80)}
 .dark .valid p strong{color:var(--white)}
 .dark .aud>div i{background:var(--gold-grad);color:var(--navy)}
-.dark .kit li{background:var(--glass);border-color:var(--glass-line);color:var(--w-80)}
-.dark .kit li.on{background:var(--glass-2);color:var(--white)}
-.dark .kit li::before{background:rgba(255,255,255,.1);color:var(--w-60)}
-.dark .kit li.on::before{background:var(--gold-grad);color:var(--navy)}
 .dark .box{border-color:rgba(255,255,255,.22);box-shadow:0 40px 90px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.35)}
 .doc p{font-size:.84rem;color:var(--muted);font-weight:300}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
@@ -637,20 +643,26 @@ footer .brand img{width:32px;height:32px}
       <div>
         <span class="eyebrow"><i></i>Guia da maleta de emergência</span>
         <h2>A maleta que a lei exige, montada como <em>a UTI montaria.</em></h2>
-        <p class="lead" style="margin-top:var(--s-3)">Ter os itens é obrigação (Resolução CFO nº 115/2011). <strong>Saber onde está cada um e usar em menos de 3 minutos</strong> é o que o KARMED ensina. Role para abrir a maleta.</p>
-        <ul class="kit" data-kit>
-          <li>DEA (desfibrilador externo automático)</li>
-          <li>Ambu adulto e infantil + cânula de Guedel</li>
-          <li>Oxímetro, esfigmomanômetro e glicosímetro</li>
-          <li>Adrenalina, glicose 50%, AAS e soro</li>
-          <li>Checklist de validade e reposição pós-uso</li>
-        </ul>
+        <p class="lead" style="margin-top:var(--s-3)">Ter os itens é obrigação (Resolução CFO nº 115/2011). <strong>Saber onde está cada um e usar em menos de 3 minutos</strong> é o que o KARMED ensina.</p>
+        <div class="kitpanel">
+          <div class="kithead">
+            <span class="kitcap">Checklist da maleta</span>
+            <span class="kitcount"><b data-kitcount>0</b> de 5 conferidos</span>
+          </div>
+          <ul class="kit" data-kit>
+            <li><span class="n">01</span><span class="t">DEA (desfibrilador externo automático)</span></li>
+            <li><span class="n">02</span><span class="t">Ambu adulto e infantil + cânula de Guedel</span></li>
+            <li><span class="n">03</span><span class="t">Oxímetro, esfigmomanômetro e glicosímetro</span></li>
+            <li><span class="n">04</span><span class="t">Adrenalina, glicose 50%, AAS e soro</span></li>
+            <li><span class="n">05</span><span class="t">Checklist de validade e reposição pós-uso</span></li>
+          </ul>
+          <div class="kitbar"><i data-kitbar></i></div>
+        </div>
       </div>
       <div class="box">
         <video data-video src="assets/maleta.mp4" poster="assets/maleta-poster.jpg" muted playsinline preload="auto"></video>
         <canvas data-canvas></canvas>
         <span class="tag">Role para abrir</span>
-        <div class="cnt"><span data-clock>3:00</span><small>para agir</small></div>
         <div class="loader" data-loader><div class="ld">Preparando</div></div>
       </div>
     </div>
@@ -938,7 +950,8 @@ function bindVideoScene(section, opts){
   var heroScene = bindVideoScene(hero, {frames:96, dir:'assets/frames/', onTick:onScroll});
 
   /* maleta (cena contida) */
-  var mClock = maleta.querySelector('[data-clock]'), kitItems = Array.prototype.slice.call(maleta.querySelectorAll('[data-kit] li'));
+  var kitItems = Array.prototype.slice.call(maleta.querySelectorAll('[data-kit] li'));
+  var kitCount = maleta.querySelector('[data-kitcount]'), kitBar = maleta.querySelector('[data-kitbar]');
   var maletaScene = bindVideoScene(maleta, {frames:64, dir:'assets/frames-maleta/', onTick:onScroll});
 
   /* app (passos) */
@@ -968,8 +981,13 @@ function bindVideoScene(section, opts){
     /* maleta */
     var q = progressOf(maleta);
     maletaScene.seek(q);
-    mClock.textContent = fmtClock(q);
-    kitItems.forEach(function(li,i){ li.classList.toggle('on', !desktop || q >= (i+1)/(kitItems.length+1)); });
+    var conferidos = 0;
+    kitItems.forEach(function(li,i){
+      var on = !desktop || q >= (i+1)/(kitItems.length+1);
+      li.classList.toggle('on', on); if (on) conferidos++;
+    });
+    if (kitCount) kitCount.textContent = conferidos;
+    if (kitBar) kitBar.style.width = (conferidos/kitItems.length*100)+'%';
 
     /* app: passo ativo pelo progresso */
     var r = progressOf(app);
