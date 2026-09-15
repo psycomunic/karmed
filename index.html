@@ -72,7 +72,8 @@ strong{font-weight:700}
 
 /* tipografia de apoio */
 .eyebrow{font-size:var(--fs-label);font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-lite);display:inline-flex;align-items:center;gap:10px;margin-bottom:var(--s-3);padding:9px 16px;border-radius:var(--r-pill);background:var(--glass);border:1px solid var(--glass-line);backdrop-filter:blur(10px)}
-.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.eyebrow svg{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+.eyebrow.plain{gap:0}
 .light .eyebrow{color:var(--gold-ink);background:rgba(255,255,255,.7);border-color:var(--glass-light-line)}
 .lead{font-size:var(--fs-lead);font-weight:300;line-height:1.65;max-width:62ch}
 .lead strong{font-weight:600}
@@ -168,7 +169,7 @@ strong{font-weight:700}
 .marquee{background:rgba(8,19,40,.8);border-top:1px solid var(--glass-line);border-bottom:1px solid var(--glass-line);padding:16px 0;overflow:hidden;position:relative;z-index:1;backdrop-filter:blur(10px)}
 .marquee .track{display:flex;gap:var(--s-5);width:max-content;animation:mq 48s linear infinite;font-weight:600;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--w-60);white-space:nowrap}
 .marquee .track span{display:inline-flex;align-items:center;gap:var(--s-3)}
-.marquee .track span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal)}
+.marquee .track span::before{content:"";width:1px;height:14px;background:linear-gradient(180deg,transparent,rgba(212,175,55,.75),transparent)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* grids e cards */
@@ -323,24 +324,31 @@ strong{font-weight:700}
 .bonus p{font-size:.82rem;color:var(--w-60);font-weight:300}
 
 /* docentes */
-.doc{padding:0;overflow:hidden;display:flex;flex-direction:column}
-.doc .ph{aspect-ratio:4/5;overflow:hidden;position:relative}
-.doc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
-.doc:hover .ph img{transform:scale(1.05)}
-.doc .bd{padding:var(--s-3) var(--s-3) var(--s-4)}
-.doc h3{font-size:1.02rem;margin-bottom:6px}
-.doc .role{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink);line-height:1.6;margin-bottom:10px}
-.dark .doc .role{color:var(--gold-lite)}
-.dark .doc p{color:var(--w-60)}
-.dark .tags span{background:var(--glass);border-color:var(--glass-line);color:var(--w-80)}
+/* ===== docentes: o retrato ocupa o card, o texto vive sobre o degrade ===== */
+.doc{position:relative;padding:0;overflow:hidden;aspect-ratio:5/8;display:block;isolation:isolate}
+.doc .ph{position:absolute;inset:0;overflow:hidden}
+.doc .ph img{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:saturate(.5) brightness(.78) contrast(1.06);transition:transform .9s var(--ease),filter .6s var(--ease)}
+.doc:hover .ph img{transform:scale(1.06);filter:saturate(.74) brightness(.9) contrast(1.06)}
+/* halo atras da pessoa: unifica fotos de origens e fundos diferentes */
+.doc .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(56% 40% at 50% 28%,rgba(212,175,55,.4),rgba(18,62,107,.3) 46%,transparent 72%);mix-blend-mode:screen;opacity:.85;transition:opacity .6s var(--ease)}
+.doc:hover .ph::after{opacity:1}
+/* degrade que sustenta a leitura do texto */
+.doc::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,13,29,.22) 0%,rgba(6,13,29,0) 30%,rgba(6,13,29,.72) 62%,rgba(6,13,29,.96) 100%)}
+.doc .bd{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:var(--s-3);display:grid;gap:7px}
+.doc h3{font-size:1.08rem;line-height:1.22;color:var(--white);margin:0}
+.doc .role{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lite);line-height:1.5;margin:0}
+/* descricao e selos entram no hover, como na referencia */
+.doc .reveal{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .55s var(--ease),opacity .4s var(--ease)}
+.doc .reveal>div{overflow:hidden;min-height:0}
+.doc .cred{font-size:.6rem;line-height:1.45;color:var(--w-40);font-weight:400;margin-top:7px;padding-top:7px;border-top:1px solid var(--glass-line)}
+.doc:hover .reveal,.doc:focus-within .reveal{grid-template-rows:1fr;opacity:1}
+@media (hover:none){.doc .reveal{grid-template-rows:1fr;opacity:1}}
 .dark .valid .seal{color:var(--gold-lite)}
 .dark .valid p{color:var(--w-80)}
 .dark .valid p strong{color:var(--white)}
 .dark .aud>div i{background:var(--gold-grad);color:var(--navy)}
 .dark .box{border-color:rgba(255,255,255,.22);box-shadow:0 40px 90px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.35)}
-.doc p{font-size:.84rem;color:var(--muted);font-weight:300}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.tags span{font-size:.66rem;font-weight:600;letter-spacing:.04em;padding:5px 10px;border-radius:var(--r-pill);background:rgba(13,27,61,.06);border:1px solid var(--glass-light-line);color:var(--ink)}
+.doc p{font-size:.76rem;line-height:1.5;color:var(--w-60);font-weight:300;margin-top:7px}
 .valid{margin-top:var(--s-5);padding:var(--s-4);display:grid;gap:var(--s-3);align-items:center}
 @media(min-width:900px){.valid{grid-template-columns:auto 1fr;gap:var(--s-5)}}
 .valid .seal{width:112px;height:112px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;text-align:center;font-size:.6rem;font-weight:700;letter-spacing:.16em;color:var(--gold-ink);line-height:1.6;background:radial-gradient(circle,rgba(212,175,55,.25),transparent 70%)}
@@ -499,21 +507,21 @@ footer .brand img{width:32px;height:32px}
     <div class="ui">
       <div class="line" data-from="0" data-to="0.34">
         <div class="inner">
-          <span class="eyebrow"><i></i>Único curso do Brasil criado por intensivista + professor titular da UFF</span>
+          <span class="eyebrow plain">Único curso do Brasil criado por intensivista + professor titular da UFF</span>
           <h1>A emergência não avisa. Ela <em>acontece</em> na sua cadeira.</h1>
           <p>Parada cardiorrespiratória, anafilaxia, hipoglicemia, crise convulsiva. <strong>Quando acontece, você tem 3 minutos</strong> e nenhum tempo para improvisar.</p>
         </div>
       </div>
       <div class="line" data-from="0.34" data-to="0.66">
         <div class="inner">
-          <span class="eyebrow"><i></i>Da UTI para o consultório</span>
+          <span class="eyebrow plain">Da UTI para o consultório</span>
           <h1>O rigor de quem decide na UTI, <em>traduzido</em> para a odontologia.</h1>
           <p>Mais de 10 anos em UTI de alta complexidade viraram protocolos que cabem no seu consultório: <strong>reconhecer, decidir e agir</strong> antes que a ambulância chegue.</p>
         </div>
       </div>
       <div class="line" data-from="0.66" data-to="1.01">
         <div class="inner">
-          <span class="eyebrow"><i></i>Curso + App com IA + Guia da maleta</span>
+          <span class="eyebrow plain">Curso + App com IA + Guia da maleta</span>
           <h1>Preparo real para emergências médicas. <em>Não sorte.</em></h1>
           <p>Não é mais um curso online. É um sistema de preparo com <strong>aplicativo e inteligência artificial</strong> de apoio à decisão clínica.</p>
           <div class="cta">
@@ -556,7 +564,7 @@ footer .brand img{width:32px;height:32px}
   <span class="orb a"></span><span class="orb b"></span>
   <div class="wrap">
     <div class="head center rv">
-      <span class="eyebrow"><i></i>Você reconhece alguma dessas cenas?</span>
+      <span class="eyebrow plain">Você reconhece alguma dessas cenas?</span>
       <h2>O risco já está na sua rotina. <em>O preparo, não.</em></h2>
       <p class="lead">Procedimentos mais invasivos, sedação, pacientes com comorbidades. A odontologia moderna expõe você a um risco real, e a graduação entregou um preparo raso, teórico e distante do consultório.</p>
     </div>
@@ -580,7 +588,7 @@ footer .brand img{width:32px;height:32px}
   <span class="orb a"></span><span class="orb b"></span>
   <div class="wrap">
     <div class="head center rv">
-      <span class="eyebrow"><i></i>O ecossistema KARMED</span>
+      <span class="eyebrow plain">O ecossistema KARMED</span>
       <h2>Três frentes, um único objetivo: <em>te preparar.</em></h2>
       <p class="lead">Não é um curso solto. É estudo, ferramenta na mão e consultório equipado, funcionando juntos, com o rigor da medicina intensiva aplicado à odontologia.</p>
     </div>
@@ -620,7 +628,7 @@ footer .brand img{width:32px;height:32px}
         </div>
       </div>
       <div>
-        <span class="eyebrow"><i></i>App KARMED + inteligência artificial</span>
+        <span class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M9 21h6M3 9v6M21 9v6"/><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10.5 10.5h3v3h-3z"/></svg>App KARMED + inteligência artificial</span>
         <h2>Sob pressão, o protocolo some da cabeça. <em>O app é o seu co-piloto.</em></h2>
         <p class="lead" style="margin-top:var(--s-3)">Você descreve os sinais observados; a IA cruza com os protocolos validados pelo corpo docente e sugere <strong>as hipóteses mais prováveis e a sequência de conduta</strong>. Apoio à decisão, nunca diagnóstico automático.</p>
         <div class="steps" style="margin-top:var(--s-4)">
@@ -641,7 +649,7 @@ footer .brand img{width:32px;height:32px}
     <span class="orb a"></span><span class="orb b"></span>
     <div class="inner">
       <div>
-        <span class="eyebrow"><i></i>Guia da maleta de emergência</span>
+        <span class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2.5"/><path d="M16 7V5.5A2.5 2.5 0 0 0 13.5 3h-3A2.5 2.5 0 0 0 8 5.5V7"/><path d="M12 11.5v6M9 14.5h6"/></svg>Guia da maleta de emergência</span>
         <h2>A maleta que a lei exige, montada como <em>a UTI montaria.</em></h2>
         <p class="lead" style="margin-top:var(--s-3)">Ter os itens é obrigação (Resolução CFO nº 115/2011). <strong>Saber onde está cada um e usar em menos de 3 minutos</strong> é o que o KARMED ensina.</p>
         <div class="kitpanel">
@@ -675,7 +683,7 @@ footer .brand img{width:32px;height:32px}
   <div class="wrap">
     <div class="split" style="align-items:start">
       <div class="rv">
-        <span class="eyebrow"><i></i>O curso</span>
+        <span class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>O curso</span>
         <h2>16 módulos. Do reconhecimento <em>à ação.</em></h2>
         <p class="lead" style="margin-top:var(--s-3)">Cada módulo segue a lógica da UTI: <strong>reconhecer em segundos, decidir com protocolo, agir com o que está na maleta.</strong> O conteúdo é organizado em cinco frentes.</p>
         <ul class="checks">
@@ -718,15 +726,15 @@ footer .brand img{width:32px;height:32px}
   <span class="orb a"></span><span class="orb b"></span>
   <div class="wrap">
     <div class="head center rv">
-      <span class="eyebrow"><i></i>Corpo docente</span>
+      <span class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Corpo docente</span>
       <h2>A combinação de autoridade que não existe em nenhum outro produto <em>do Brasil.</em></h2>
       <p class="lead">Médico intensivista, professor titular de universidade federal, especialista em acessos vasculares e advogado de Direito Médico. Cada módulo sensível é assinado pelo especialista da área.</p>
     </div>
     <div class="grid g4 rv-stagger">
-      <div class="glass card doc"><div class="ph"><img src="assets/docentes/schostney-castro.jpg" alt="Dr. Schostney Castro" loading="lazy"></div><div class="bd"><h3>Dr. Schostney Castro</h3><div class="role">Médico Intensivista · Fundador EFATÁ Healthtech · CRM-RJ 52-98350-0</div><p>Mais de 10 anos em UTI de alta complexidade. Idealizador do KARMED e responsável pelo conteúdo clínico.</p><div class="tags"><span>UTI 10+ anos</span><span>Nutrologia</span><span>EFATÁ Healthtech</span></div></div></div>
-      <div class="glass card doc"><div class="ph"><img src="assets/docentes/claudio-loredo.jpg" alt="Prof. Dr. Claudio Loredo de Sá" loading="lazy"></div><div class="bd"><h3>Prof. Dr. Claudio Loredo de Sá</h3><div class="role">Professor Titular UFF · Doutor em Urgências e Emergências Odontológicas · Pneumologia</div><p>Maior referência acadêmica nacional em emergências odontológicas. Revisão científica integral do curso e do app.</p><div class="tags"><span>UFF Titular</span><span>Doutor UrEm Odonto</span><span>Pneumologista</span></div></div></div>
-      <div class="glass card doc"><div class="ph"><img src="assets/docentes/schostilaine-castro.jpg" alt="Dra. Schostilaine Castro" loading="lazy"></div><div class="bd"><h3>Dra. Schostilaine Castro</h3><div class="role">Enfermeira · Mestre pela UNIRIO · Comissão de Acessos Vasculares do Instituto Nacional de Cardiologia</div><p>Atua no Ministério da Saúde com foco em terapia infusional e segurança em acessos venosos. Responsável pela aula de Acessos Vasculares.</p><div class="tags"><span>UERJ/UNIRIO</span><span>Ministério da Saúde</span><span>Terapia Infusional</span></div></div></div>
-      <div class="glass card doc"><div class="ph"><img src="assets/docentes/leonardo-martins.jpg" alt="Dr. Leonardo Martins" loading="lazy"></div><div class="bd"><h3>Dr. Leonardo Martins</h3><div class="role">Advogado · Especialista em Direito Médico</div><p>Traduz para o dentista os limites de responsabilidade profissional, a omissão de socorro e as bases legais do atendimento de emergência.</p><div class="tags"><span>Direito Médico</span><span>Responsabilidade Profissional</span></div></div></div>
+      <div class="glass card doc"><div class="ph"><img src="assets/docentes/schostney-castro.jpg" alt="Dr. Schostney Castro" loading="lazy"></div><div class="bd"><h3>Dr. Schostney Castro</h3><div class="role">Médico intensivista</div><div class="reveal"><div><div class="cred">Fundador da EFATÁ Healthtech · Nutrologia · CRM-RJ 52-98350-0</div><p>Mais de 10 anos em UTI de alta complexidade. Idealizador do KARMED e responsável pelo conteúdo clínico.</p></div></div></div></div>
+      <div class="glass card doc"><div class="ph"><img src="assets/docentes/claudio-loredo.jpg" alt="Prof. Dr. Claudio Loredo de Sá" loading="lazy"></div><div class="bd"><h3>Prof. Dr. Claudio Loredo de Sá</h3><div class="role">Professor titular da UFF</div><div class="reveal"><div><div class="cred">Doutor em Urgências e Emergências Odontológicas · Pneumologia</div><p>Maior referência acadêmica nacional em emergências odontológicas. Revisão científica integral do curso e do app.</p></div></div></div></div>
+      <div class="glass card doc"><div class="ph"><img src="assets/docentes/schostilaine-castro.jpg" alt="Dra. Schostilaine Castro" loading="lazy"></div><div class="bd"><h3>Dra. Schostilaine Castro</h3><div class="role">Enfermeira · Acessos vasculares</div><div class="reveal"><div><div class="cred">Mestre pela UNIRIO · Comissão de Acessos Vasculares do Instituto Nacional de Cardiologia</div><p>Atua no Ministério da Saúde com foco em terapia infusional e segurança em acessos venosos. Responsável pela aula de Acessos Vasculares.</p></div></div></div></div>
+      <div class="glass card doc"><div class="ph"><img src="assets/docentes/leonardo-martins.jpg" alt="Dr. Leonardo Martins" loading="lazy"></div><div class="bd"><h3>Dr. Leonardo Martins</h3><div class="role">Advogado</div><div class="reveal"><div><div class="cred">Especialista em Direito Médico</div><p>Traduz para o dentista os limites de responsabilidade profissional, a omissão de socorro e as bases legais do atendimento de emergência.</p></div></div></div></div>
     </div>
     <div class="glass static valid rv">
       <div class="seal">CONTEÚDO<br>VALIDADO<br>2026</div>
@@ -740,7 +748,7 @@ footer .brand img{width:32px;height:32px}
   <div class="wrap">
     <div class="split">
       <div class="rv">
-        <span class="eyebrow"><i></i>Para quem é</span>
+        <span class="eyebrow plain">Para quem é</span>
         <h2>Para quem atende, e para quem apoia <em>quem atende.</em></h2>
         <p class="lead" style="margin-top:var(--s-3)">Não precisa de formação médica. O conteúdo foi desenhado para cirurgiões-dentistas, com linguagem clara e protocolos práticos, sem jargão desnecessário.</p>
       </div>
@@ -759,7 +767,7 @@ footer .brand img{width:32px;height:32px}
   <span class="orb a"></span><span class="orb b"></span><span class="orb c"></span>
   <div class="wrap">
     <div class="head center rv">
-      <span class="eyebrow"><i></i>Ancoragem de valor</span>
+      <span class="eyebrow plain">Ancoragem de valor</span>
       <h2>Quanto custa <em>não</em> estar preparado?</h2>
       <p class="lead">Compare com o custo de uma única ação por negligência ou omissão de socorro. O investimento no KARMED é uma fração do risco financeiro e reputacional.</p>
     </div>
@@ -795,7 +803,7 @@ footer .brand img{width:32px;height:32px}
   <span class="orb a"></span>
   <div class="wrap">
     <div class="head center rv">
-      <span class="eyebrow"><i></i>Dúvidas</span>
+      <span class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.2 9.3a3 3 0 0 1 5.8 1c0 2-3 2.5-3 4"/><path d="M12 17.5h.01"/></svg>Dúvidas</span>
       <h2>Tire suas dúvidas <em>antes de decidir.</em></h2>
       <p class="lead">Não encontrou sua resposta? Fale direto com nosso time no WhatsApp. Respondemos rápido.</p>
     </div>
@@ -816,7 +824,7 @@ footer .brand img{width:32px;height:32px}
 <section class="sec dark final" id="cta">
   <div class="bg" aria-hidden="true"></div>
   <div class="wrap rv">
-    <span class="eyebrow"><i></i>Última chamada do lote</span>
+    <span class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>Última chamada do lote</span>
     <h2>Você pode seguir torcendo para não acontecer. <em>Ou pode estar pronto quando acontecer.</em></h2>
     <p class="lead">A próxima emergência não vai perguntar se você fez o curso. Entre no ecossistema KARMED hoje e leve o rigor da UTI para o seu consultório.</p>
 
