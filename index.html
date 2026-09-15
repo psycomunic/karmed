@@ -348,29 +348,29 @@ strong{font-weight:700}
 
 /* docentes */
 /* ===== docentes: o retrato ocupa o card, o texto vive sobre o degrade ===== */
-.doc{position:relative;padding:0;overflow:hidden;aspect-ratio:5/8;display:block;isolation:isolate}
+.doc{position:relative;padding:0;overflow:hidden;aspect-ratio:5/9;display:block;isolation:isolate}
 .doc .ph{position:absolute;inset:0;overflow:hidden}
 .doc .ph img{width:100%;height:100%;object-fit:cover;object-position:center 22%;transform-origin:50% 22%;filter:saturate(.56) brightness(.84) contrast(1.04);transition:transform .9s var(--ease),filter .6s var(--ease)}
-.doc:hover .ph img,.doc:focus-within .ph img{transform:scale(1.26);filter:saturate(.78) brightness(.94) contrast(1.04)}
+.doc:hover .ph img,.doc:focus-within .ph img{transform:scale(1.38);filter:saturate(.78) brightness(.94) contrast(1.04)}
 /* halo atras da pessoa: unifica fotos de origens e fundos diferentes */
 .doc .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(115% 78% at 50% 26%,transparent 38%,rgba(6,13,29,.5) 100%);opacity:1;transition:opacity .6s var(--ease)}
 .doc:hover .ph::after{opacity:1}
 /* degrade que sustenta a leitura do texto */
 .doc::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,13,29,.22) 0%,rgba(6,13,29,0) 30%,rgba(6,13,29,.72) 62%,rgba(6,13,29,.96) 100%)}
-.doc .bd{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:var(--s-3);display:grid;gap:7px}
-.doc h3{font-size:1.08rem;line-height:1.22;color:var(--white);margin:0}
-.doc .role{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lite);line-height:1.5;margin:0}
+.doc .bd{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:18px;display:grid;gap:5px}
+.doc h3{font-size:1.02rem;line-height:1.18;color:var(--white);margin:0}
+.doc .role{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-lite);line-height:1.4;margin:0}
 /* descricao e selos entram no hover, como na referencia */
 .doc .reveal{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .55s var(--ease),opacity .4s var(--ease)}
 .doc .reveal>div{overflow:hidden;min-height:0}
-.doc .cred{font-size:.6rem;line-height:1.45;color:var(--w-40);font-weight:400;margin-top:7px;padding-top:7px;border-top:1px solid var(--glass-line)}
+.doc .cred{font-size:.58rem;line-height:1.35;color:var(--w-40);font-weight:400;margin-top:6px;padding-top:6px;border-top:1px solid var(--glass-line)}
 .doc:hover .reveal,.doc:focus-within .reveal{grid-template-rows:1fr;opacity:1}
 @media (hover:none){.doc .reveal{grid-template-rows:1fr;opacity:1}}
 .dark .valid p{color:var(--w-80)}
 .dark .valid p strong{color:var(--white)}
 .dark .aud>div i{background:var(--gold-grad);color:var(--navy)}
 .dark .box{border-color:rgba(255,255,255,.22);box-shadow:0 40px 90px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.35)}
-.doc p{font-size:.76rem;line-height:1.5;color:var(--w-60);font-weight:300;margin-top:7px}
+.doc p{font-size:.74rem;line-height:1.45;color:var(--w-60);font-weight:300;margin-top:6px}
 .valid{margin-top:var(--s-5);padding:var(--s-4);display:grid;gap:var(--s-3);align-items:center}
 @media(min-width:900px){.valid{grid-template-columns:auto 1fr;gap:var(--s-5)}}
 .valid .seal{width:clamp(116px,13vw,148px);height:auto;display:block;justify-self:center;filter:drop-shadow(0 14px 28px rgba(0,0,0,.45)) drop-shadow(0 0 22px rgba(212,175,55,.22));transition:transform .5s var(--ease)}
@@ -749,7 +749,7 @@ footer .brand img{width:32px;height:32px}
     <div class="grid g4 rv-stagger">
       <div class="glass card doc"><div class="ph"><img src="assets/docentes/schostney-castro.jpg" alt="Dr. Schostney Castro" loading="lazy"></div><div class="bd"><h3>Dr. Schostney Castro</h3><div class="role">Médico intensivista</div><div class="reveal"><div><div class="cred">Fundador da EFATÁ Healthtech · Nutrologia · CRM-RJ 52-98350-0</div><p>Mais de 10 anos em UTI de alta complexidade. Idealizador do KARMED e responsável pelo conteúdo clínico.</p></div></div></div></div>
       <div class="glass card doc"><div class="ph"><img src="assets/docentes/claudio-loredo.jpg" alt="Prof. Dr. Claudio Loredo de Sá" loading="lazy"></div><div class="bd"><h3>Prof. Dr. Claudio Loredo de Sá</h3><div class="role">Professor titular da UFF</div><div class="reveal"><div><div class="cred">Doutor em Urgências e Emergências Odontológicas · Pneumologia</div><p>Maior referência acadêmica nacional em emergências odontológicas. Revisão científica integral do curso e do app.</p></div></div></div></div>
-      <div class="glass card doc"><div class="ph"><img src="assets/docentes/schostilaine-castro.jpg" alt="Dra. Schostilaine Castro" loading="lazy"></div><div class="bd"><h3>Dra. Schostilaine Castro</h3><div class="role">Enfermeira · Acessos vasculares</div><div class="reveal"><div><div class="cred">Mestre pela UNIRIO · Comissão de Acessos Vasculares do Instituto Nacional de Cardiologia</div><p>Atua no Ministério da Saúde com foco em terapia infusional e segurança em acessos venosos. Responsável pela aula de Acessos Vasculares.</p></div></div></div></div>
+      <div class="glass card doc"><div class="ph"><img src="assets/docentes/schostilaine-castro.jpg" alt="Dra. Schostilaine Castro" loading="lazy"></div><div class="bd"><h3>Dra. Schostilaine Castro</h3><div class="role">Enfermeira · Acessos vasculares</div><div class="reveal"><div><div class="cred">Mestre pela UNIRIO · Instituto Nacional de Cardiologia</div><p>Atua no Ministério da Saúde com foco em terapia infusional e segurança em acessos venosos. Responsável pela aula de Acessos Vasculares.</p></div></div></div></div>
       <div class="glass card doc"><div class="ph"><img src="assets/docentes/leonardo-martins.jpg" alt="Dr. Leonardo Martins" loading="lazy"></div><div class="bd"><h3>Dr. Leonardo Martins</h3><div class="role">Advogado</div><div class="reveal"><div><div class="cred">Especialista em Direito Médico</div><p>Traduz para o dentista os limites de responsabilidade profissional, a omissão de socorro e as bases legais do atendimento de emergência.</p></div></div></div></div>
     </div>
     <div class="glass static valid rv">
