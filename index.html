@@ -330,7 +330,7 @@ strong{font-weight:700}
 .doc .ph img{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:saturate(.5) brightness(.78) contrast(1.06);transition:transform .9s var(--ease),filter .6s var(--ease)}
 .doc:hover .ph img{transform:scale(1.06);filter:saturate(.74) brightness(.9) contrast(1.06)}
 /* halo atras da pessoa: unifica fotos de origens e fundos diferentes */
-.doc .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(56% 40% at 50% 28%,rgba(212,175,55,.4),rgba(18,62,107,.3) 46%,transparent 72%);mix-blend-mode:screen;opacity:.85;transition:opacity .6s var(--ease)}
+.doc .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(212,175,55,.34) 0%,rgba(212,175,55,.1) 16%,transparent 32%);mix-blend-mode:screen;opacity:.9;transition:opacity .6s var(--ease)}
 .doc:hover .ph::after{opacity:1}
 /* degrade que sustenta a leitura do texto */
 .doc::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,13,29,.22) 0%,rgba(6,13,29,0) 30%,rgba(6,13,29,.72) 62%,rgba(6,13,29,.96) 100%)}
@@ -361,13 +361,6 @@ strong{font-weight:700}
 .aud>div i{flex:none;width:40px;height:40px;border-radius:12px;background:var(--navy);color:var(--gold-lite);display:grid;place-items:center;font-size:.68rem;font-weight:700;letter-spacing:.08em;font-style:normal}
 
 /* ancoragem */
-.anchor{display:grid;gap:12px;max-width:860px;margin:0 auto}
-.anchor .row{display:grid;grid-template-columns:1fr auto;gap:var(--s-2);align-items:center;padding:var(--s-3) var(--s-4);color:var(--w-80);font-weight:300;border-radius:var(--r-sm)}
-.anchor .row b{font-weight:700;color:#FF9A88;white-space:nowrap}
-.anchor .row.win{background:var(--gold-grad);color:var(--navy);border-color:transparent;font-weight:600;box-shadow:0 20px 50px rgba(212,175,55,.25)}
-.anchor .row.win b{color:var(--navy);font-weight:800}
-@media(max-width:520px){.anchor .row{grid-template-columns:1fr}}
-.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent)}
 
 .guar{margin-top:var(--s-6);display:grid;gap:var(--s-3);align-items:center}
 @media(min-width:960px){.guar{grid-template-columns:1.2fr .8fr}}
@@ -488,7 +481,7 @@ footer .brand img{width:32px;height:32px}
       <a href="#maleta">Maleta</a>
       <a href="#curso">O Curso</a>
       <a href="#docentes">Corpo Docente</a>
-      <a href="#planos">Investimento</a>
+      <a href="#planos">Garantias</a>
       <a href="#faq">Dúvidas</a>
     </nav>
     <a href="#planos" class="btn btn-gold">Garantir minha vaga</a>
@@ -767,18 +760,10 @@ footer .brand img{width:32px;height:32px}
   <span class="orb a"></span><span class="orb b"></span><span class="orb c"></span>
   <div class="wrap">
     <div class="head center rv">
-      <span class="eyebrow plain">Ancoragem de valor</span>
-      <h2>Quanto custa <em>não</em> estar preparado?</h2>
-      <p class="lead">Compare com o custo de uma única ação por negligência ou omissão de socorro. O investimento no KARMED é uma fração do risco financeiro e reputacional.</p>
+      <span class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Garantias</span>
+      <h2>O risco é nosso, <em>não seu.</em></h2>
+      <p class="lead">Sete dias para testar por dentro. Se não for para você, devolvemos tudo, sem justificativa.</p>
     </div>
-    <div class="anchor rv-stagger">
-      <div class="glass static row"><span>Consulta jurídica por negligência</span><b>R$ 800 – R$ 3.000+</b></div>
-      <div class="glass static row"><span>Ação judicial por omissão de socorro</span><b>R$ 15.000 – R$ 100.000+</b></div>
-      <div class="glass static row"><span>Curso de BLS presencial genérico</span><b>R$ 900 – R$ 1.500</b></div>
-      <div class="row win"><span>Investimento no KARMED COMPLETO (curso + app por 12 meses)</span><b>R$ 1.497,00</b></div>
-    </div>
-
-    <div class="divider" style="margin:var(--s-8) 0 var(--s-7)"></div>
     <div class="guar rv">
       <div class="items">
         <div class="glass static"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>Garantia incondicional de 7 dias: se não for para você, devolvemos tudo.</div>
