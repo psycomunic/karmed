@@ -191,7 +191,7 @@ strong{font-weight:700}
    Um painel unico dividido em quadrantes, em vez de itens soltos: da
    presenca a secao sem voltar aos quatro retangulos identicos. Cada
    quadrante tem um numeral em marca-d'agua e um risco de tensao. */
-.scenes{position:relative;display:grid;grid-template-columns:1fr;border:1px solid var(--line-gold);border-radius:var(--r-lg);background:linear-gradient(155deg,rgba(18,62,107,.5),rgba(7,15,34,.5));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 40px 100px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.14);overflow:hidden}
+.scenes{position:relative;display:grid;grid-template-columns:1fr;border:1px solid rgba(212,175,55,.42);border-radius:var(--r-lg);background:linear-gradient(155deg,rgba(18,62,107,.5),rgba(7,15,34,.5));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 40px 100px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.14);overflow:hidden}
 @media(min-width:860px){.scenes{grid-template-columns:1fr 1fr}}
 .pain{position:relative;padding:var(--s-4);border-bottom:1px solid var(--glass-line);transition:background .45s var(--ease);overflow:hidden}
 @media(min-width:900px){.pain{padding:var(--s-5)}}
@@ -355,23 +355,6 @@ strong{font-weight:700}
 @media(max-width:520px){.anchor .row{grid-template-columns:1fr}}
 .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent)}
 
-/* planos */
-.plans{display:grid;gap:var(--s-3);align-items:stretch}
-@media(min-width:960px){.plans{grid-template-columns:1fr 1.1fr 1fr;align-items:center}}
-.plan{display:flex;flex-direction:column;gap:var(--s-3);position:relative;padding:var(--s-5) var(--s-4)}
-.plan.hot{border-color:rgba(212,175,55,.7);background:linear-gradient(160deg,rgba(212,175,55,.16),rgba(255,255,255,.04));box-shadow:0 40px 90px rgba(212,175,55,.16),inset 0 1px 0 var(--glass-hi)}
-.plan .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold-grad);color:var(--navy);font-size:.64rem;letter-spacing:.2em;font-weight:700;padding:7px 16px;border-radius:var(--r-pill);white-space:nowrap}
-.plan .kicker{font-size:var(--fs-label);font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-lite)}
-.plan h3{font-size:1.6rem;font-weight:700;line-height:1.1}
-.plan .desc{font-size:var(--fs-small);color:var(--w-60);font-weight:300}
-.plan .price{font-weight:800;font-size:2.6rem;line-height:1;letter-spacing:-.03em;color:var(--white)}
-.plan .price small{font-size:1rem;font-weight:600;margin-right:4px;vertical-align:top;position:relative;top:6px}
-.plan .price em{font-style:normal;font-size:1rem;font-weight:500;color:var(--w-60)}
-.plan .sub{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-lite);margin-top:8px}
-.plan .list{list-style:none;display:grid;gap:10px;padding-top:var(--s-3);border-top:1px solid var(--glass-line)}
-.plan .list li{display:grid;grid-template-columns:16px 1fr;gap:10px;font-size:var(--fs-small);color:var(--w-80);font-weight:300}
-.plan .list li::before{content:"✦";color:var(--gold);font-size:11px;margin-top:3px}
-.plan .btn{width:100%;margin-top:auto}
 .guar{margin-top:var(--s-6);display:grid;gap:var(--s-3);align-items:center}
 @media(min-width:960px){.guar{grid-template-columns:1.2fr .8fr}}
 .guar .items{display:grid;gap:var(--s-2)}
@@ -491,7 +474,7 @@ footer .brand img{width:32px;height:32px}
       <a href="#maleta">Maleta</a>
       <a href="#curso">O Curso</a>
       <a href="#docentes">Corpo Docente</a>
-      <a href="#planos">Planos</a>
+      <a href="#planos">Investimento</a>
       <a href="#faq">Dúvidas</a>
     </nav>
     <a href="#planos" class="btn btn-gold">Garantir minha vaga</a>
@@ -776,36 +759,6 @@ footer .brand img{width:32px;height:32px}
     </div>
 
     <div class="divider" style="margin:var(--s-8) 0 var(--s-7)"></div>
-
-    <div class="head center rv">
-      <span class="eyebrow"><i></i>Planos</span>
-      <h2>Escolha sua entrada no <em>ecossistema KARMED.</em></h2>
-      <p class="lead">12 vagas restantes no lote atual. Garantia incondicional de 7 dias em todos os planos.</p>
-    </div>
-    <div class="plans rv-stagger">
-      <div class="glass plan">
-        <span class="kicker">KARMED</span><h3>Curso Avançado</h3>
-        <p class="desc">A porta de entrada para o preparo real em emergências médicas.</p>
-        <div><div class="price"><small>R$</small>997<em>,00</em></div><div class="sub">Preço de lançamento · vagas limitadas</div></div>
-        <ul class="list"><li>16 módulos completos</li><li>E-book da matéria</li><li>Checklist de PCR</li><li>Checklist da Maleta de Emergência</li><li>30 dias grátis do App KARMED</li><li>Certificado de conclusão</li></ul>
-        <a class="btn btn-glass" href="https://wa.me/5521972109070?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20Curso%20Avan%C3%A7ado%20do%20KARMED." target="_blank" rel="noopener">Quero o Curso Avançado</a>
-      </div>
-      <div class="glass plan hot">
-        <span class="badge">MAIS ESCOLHIDO</span>
-        <span class="kicker">KARMED</span><h3>KARMED Completo</h3>
-        <p class="desc">Curso + App KARMED com IA por 12 meses. Todo o ecossistema em uma única entrada.</p>
-        <div><div class="price"><small>R$</small>1.497<em>,00</em></div><div class="sub">Economia frente à compra separada</div></div>
-        <ul class="list"><li>Tudo do Curso Avançado</li><li>App KARMED com IA por 12 meses completos</li><li>Acesso prioritário a atualizações</li><li>Comunidade exclusiva</li><li>Garantia de 7 dias</li></ul>
-        <a class="btn btn-gold" href="https://wa.me/5521972109070?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20KARMED%20COMPLETO%20do%20KARMED." target="_blank" rel="noopener">Quero o KARMED Completo</a>
-      </div>
-      <div class="glass plan">
-        <span class="kicker">KARMED</span><h3>Apenas o App</h3>
-        <p class="desc">IA clínica de apoio à decisão no seu bolso.</p>
-        <div><div class="price"><small>R$</small>59<em>/mês</em></div><div class="sub">ou R$ 590,00/ano com desconto</div></div>
-        <ul class="list"><li>IA clínica em tempo real</li><li>Checklists interativos</li><li>Funciona offline</li><li>Atualizações contínuas</li></ul>
-        <a class="btn btn-glass" href="https://wa.me/5521972109070?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20App%20KARMED%20(mensal)%20do%20KARMED." target="_blank" rel="noopener">Quero o App KARMED</a>
-      </div>
-    </div>
     <div class="guar rv">
       <div class="items">
         <div class="glass static"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>Garantia incondicional de 7 dias: se não for para você, devolvemos tudo.</div>
@@ -877,7 +830,6 @@ footer .brand img{width:32px;height:32px}
           <span>Garantia incondicional de 7 dias: se não for para você, devolvemos tudo</span>
           <span>Acesso vitalício ao curso e atualizações sem custo adicional</span>
         </div>
-        <div class="alt">Prefere começar só pelo curso? O <b>Curso Avançado</b> sai por <b>R$ 997,00</b>, com 30 dias grátis do app. <a href="#planos">Comparar os planos</a></div>
       </div>
     </div>
 
