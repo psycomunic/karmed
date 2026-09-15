@@ -276,7 +276,18 @@ strong{font-weight:700}
 .maleta-scene{height:340vh}
 .maleta-scene>.sticky{display:grid;align-items:center}
 .maleta-scene .inner{max-width:var(--max);margin:0 auto;padding:var(--nav-h) var(--s-3) var(--s-4);width:100%;display:grid;gap:var(--s-5);align-items:center;position:relative;z-index:1}
-@media(min-width:960px){.maleta-scene .inner{grid-template-columns:.9fr 1.1fr;padding:var(--nav-h) var(--s-5) var(--s-4)}}
+/* veu que segura a leitura a direita sem cobrir a maleta; o video e claro,
+   entao a queda precisa ser forte do meio para a direita */
+.maleta-scene .shade{display:none;position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(6,13,29,0) 0%,rgba(6,13,29,.1) 24%,rgba(6,13,29,.72) 46%,rgba(6,13,29,.93) 66%,rgba(6,13,29,.97) 100%)}
+.maleta-scene .shade::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,13,29,.6) 0%,rgba(6,13,29,.1) 20%,rgba(6,13,29,.1) 70%,rgba(6,13,29,.75) 100%)}
+@media(min-width:960px){
+  .maleta-scene .inner{grid-template-columns:1fr;justify-items:end;padding:var(--nav-h) var(--s-5) var(--s-4);z-index:2}
+  .maleta-scene .side{max-width:540px}
+  .maleta-scene .box{position:absolute;inset:0;aspect-ratio:auto;border-radius:0;border:0;box-shadow:none;background:transparent;z-index:0}
+  .maleta-scene .shade{display:block}
+  .maleta-scene .box .tag{left:auto;right:auto;margin-left:6vw;top:calc(var(--nav-h) + 8px)}
+}
+
 .maleta-scene h2{font-size:clamp(1.6rem,2.7vw,2.3rem)}
 .box{position:relative;aspect-ratio:16/10;border-radius:var(--r-lg);overflow:hidden;background:var(--navy-deep);border:1px solid rgba(255,255,255,.5);box-shadow:0 40px 90px rgba(13,27,61,.25),inset 0 1px 0 #fff;container-type:size}
 .box video,.box canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
@@ -639,9 +650,15 @@ footer .brand img{width:32px;height:32px}
 <!-- MALETA: cena 2 (vídeo contido em vidro) -->
 <section class="dark scene maleta-scene" id="maleta" data-scene="maleta">
   <div class="sticky">
-    <span class="orb a"></span><span class="orb b"></span>
+    <div class="box">
+      <video data-video src="assets/maleta.mp4" poster="assets/maleta-poster.jpg" muted playsinline preload="auto"></video>
+      <canvas data-canvas></canvas>
+      <span class="tag">Role para abrir</span>
+      <div class="loader" data-loader><div class="ld">Preparando</div></div>
+    </div>
+    <div class="shade" aria-hidden="true"></div>
     <div class="inner">
-      <div>
+      <div class="side">
         <span class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2.5"/><path d="M16 7V5.5A2.5 2.5 0 0 0 13.5 3h-3A2.5 2.5 0 0 0 8 5.5V7"/><path d="M12 11.5v6M9 14.5h6"/></svg>Guia da maleta de emergência</span>
         <h2>A maleta que a lei exige, montada como <em>a UTI montaria.</em></h2>
         <p class="lead" style="margin-top:var(--s-3)">Ter os itens é obrigação (Resolução CFO nº 115/2011). <strong>Saber onde está cada um e usar em menos de 3 minutos</strong> é o que o KARMED ensina.</p>
@@ -659,12 +676,6 @@ footer .brand img{width:32px;height:32px}
           </ul>
           <div class="kitbar"><i data-kitbar></i></div>
         </div>
-      </div>
-      <div class="box">
-        <video data-video src="assets/maleta.mp4" poster="assets/maleta-poster.jpg" muted playsinline preload="auto"></video>
-        <canvas data-canvas></canvas>
-        <span class="tag">Role para abrir</span>
-        <div class="loader" data-loader><div class="ld">Preparando</div></div>
       </div>
     </div>
   </div>
