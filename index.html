@@ -56,7 +56,7 @@ strong{font-weight:700}
 .dark .orb.c{width:420px;height:420px;right:20%;top:10%;background:rgba(212,175,55,.18)}
 .dark>.wrap{position:relative;z-index:1}
 .dark .lead,.dark .muted{color:var(--w-60)}
-.light{background:linear-gradient(180deg,#EEF1F5 0%,#E3E7ED 100%);color:var(--ink);position:relative;overflow:hidden}
+.light{background:linear-gradient(180deg,#F7F5EF 0%,#EDEAE1 100%);color:var(--ink);position:relative;overflow:hidden}
 .light .orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;opacity:.5}
 .light .orb.a{width:560px;height:560px;left:-160px;top:-120px;background:rgba(0,168,142,.22)}
 .light .orb.b{width:480px;height:480px;right:-140px;bottom:-120px;background:rgba(18,62,107,.18)}
@@ -223,14 +223,26 @@ strong{font-weight:700}
 .stat>span{display:block;margin-top:6px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--w-60);font-weight:500;line-height:1.5}
 
 /* pilares */
-.pillar{text-align:center;padding:var(--s-5) var(--s-4)}
-.pillar .ic{margin:0 auto var(--s-3);width:72px;height:72px;border-radius:24px}
-.pillar .ic svg{width:30px;height:30px}
-.pillar .num{display:block;font-size:var(--fs-label);font-weight:700;letter-spacing:.24em;color:var(--gold-ink);margin-bottom:8px}
-.pillar h3{font-size:1.25rem}
-.pillar ul{list-style:none;margin-top:var(--s-3);display:grid;gap:8px;text-align:left}
-.pillar li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:var(--fs-small);color:var(--muted)}
-.pillar li::before{content:"✓";width:18px;height:18px;border-radius:50%;background:var(--gold-grad);color:var(--navy);display:grid;place-items:center;font-size:10px;font-weight:800;margin-top:3px}
+/* ===== ecossistema: um painel so, dividido em tres frentes ===== */
+.pillars{display:grid;grid-template-columns:1fr;background:#fff;border:1px solid rgba(13,27,61,.09);border-radius:var(--r-lg);box-shadow:0 30px 70px rgba(13,27,61,.1);overflow:hidden}
+@media(min-width:900px){.pillars{grid-template-columns:repeat(3,1fr)}}
+.pillar{position:relative;text-align:left;padding:var(--s-4);border-bottom:1px solid rgba(13,27,61,.09);transition:background .45s var(--ease)}
+.pillar:last-child{border-bottom:0}
+@media(min-width:900px){
+  .pillar{padding:var(--s-5) var(--s-4);border-bottom:0;border-right:1px solid rgba(13,27,61,.09)}
+  .pillar:last-child{border-right:0}
+}
+.pillar:hover{background:#FBFAF7}
+.pillar .top{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);padding-bottom:var(--s-3);margin-bottom:var(--s-3);border-bottom:1px solid rgba(13,27,61,.08)}
+.pillar .num{font-size:2.5rem;font-weight:800;line-height:1;letter-spacing:-.045em;color:var(--navy);font-variant-numeric:tabular-nums;transition:color .45s var(--ease)}
+.pillar:hover .num{color:var(--gold-ink)}
+.pillar .ic{margin:0;width:46px;height:46px;border-radius:14px;flex:none;background:var(--navy);border:0;color:var(--gold-lite);display:grid;place-items:center;box-shadow:none}
+.pillar .ic svg{width:23px;height:23px}
+.pillar h3{font-size:1.18rem;color:var(--navy);margin-bottom:8px;letter-spacing:-.01em}
+.pillar p{font-size:.88rem;line-height:1.6;color:var(--muted);font-weight:300}
+.pillar ul{list-style:none;margin-top:var(--s-3);padding-top:var(--s-3);border-top:1px solid rgba(13,27,61,.08);display:grid;gap:9px}
+.pillar li{display:grid;grid-template-columns:14px 1fr;gap:10px;font-size:.84rem;color:var(--ink);font-weight:500}
+.pillar li::before{content:"✓";color:var(--gold-ink);font-size:11px;font-weight:800;line-height:1.7}
 
 /* MOCKUP PLACEHOLDER */
 .mock{position:relative;border-radius:var(--r);overflow:hidden}
@@ -596,22 +608,22 @@ footer .brand img{width:32px;height:32px}
       <h2>Três frentes, um único objetivo: <em>te preparar.</em></h2>
       <p class="lead">Não é um curso solto. É estudo, ferramenta na mão e consultório equipado, funcionando juntos, com o rigor da medicina intensiva aplicado à odontologia.</p>
     </div>
-    <div class="grid g3 rv-stagger">
-      <div class="glass card pillar">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <span class="num">01</span><h3>O Curso</h3>
+    <div class="pillars rv-stagger">
+      <div class="pillar">
+        <div class="top"><span class="num">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div></div>
+        <h3>O Curso</h3>
         <p>16 módulos práticos, do reconhecimento à ação, protocolo por protocolo. Gravado, direto ao ponto, com casos reais.</p>
         <ul><li>Protocolos passo a passo</li><li>Casos clínicos analisados</li><li>Checklists imprimíveis</li><li>Simulações de decisão sob pressão</li></ul>
       </div>
-      <div class="glass card pillar">
-        <div class="ic teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/><path d="M9 8l2 2 4-4"/></svg></div>
-        <span class="num">02</span><h3>App KARMED com IA</h3>
+      <div class="pillar">
+        <div class="top"><span class="num">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/><path d="M9 8l2 2 4-4"/></svg></div></div>
+        <h3>App KARMED com IA</h3>
         <p>O único curso do Brasil com aplicativo próprio e inteligência artificial de apoio à decisão clínica, na palma da mão.</p>
         <ul><li>IA cruza sinais com protocolos</li><li>Checklists guiados</li><li>Cálculo de dose por peso</li><li>Funciona offline</li></ul>
       </div>
-      <div class="glass card pillar">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="3"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M12 11v6M9 14h6"/></svg></div>
-        <span class="num">03</span><h3>Maleta de emergência</h3>
+      <div class="pillar">
+        <div class="top"><span class="num">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="3"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M12 11v6M9 14h6"/></svg></div></div>
+        <h3>Maleta de emergência</h3>
         <p>Guia completo para montar e manter a maleta obrigatória do consultório, conforme a Resolução CFO nº 115/2011.</p>
         <ul><li>Checklist de materiais</li><li>Checklist de medicamentos</li><li>Controle de validade</li><li>Reposição pós-uso</li></ul>
       </div>
