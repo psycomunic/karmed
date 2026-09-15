@@ -184,21 +184,33 @@ strong{font-weight:700}
 .card h3{margin-bottom:10px}
 .ic{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;margin-bottom:var(--s-3);background:linear-gradient(145deg,rgba(212,175,55,.35),rgba(212,175,55,.08));border:1px solid rgba(212,175,55,.45);color:var(--gold-lite);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
 .ic svg{width:24px;height:24px}
-.ic.red{background:linear-gradient(145deg,rgba(224,83,63,.4),rgba(224,83,63,.08));border-color:rgba(224,83,63,.5);color:#FF9A88}
 .ic.teal{background:linear-gradient(145deg,rgba(0,168,142,.4),rgba(0,168,142,.08));border-color:rgba(0,168,142,.5);color:var(--teal-lite)}
 .light .ic{color:var(--gold-ink);background:linear-gradient(145deg,rgba(212,175,55,.35),rgba(212,175,55,.1))}
 .light .ic.teal{color:#0B7F6C}
-.pain{display:grid;grid-template-columns:56px 1fr;gap:var(--s-3);align-items:start}
-.pain .ic{margin:0}
-.pain h3{font-size:.98rem;letter-spacing:.02em;text-transform:uppercase}
+/* ===== DOR: cenas clinicas =====
+   Sem caixa: cada cena e um item editorial com um fio de tensao no topo
+   e um numeral. Resolve de uma vez a monotonia de 4 retangulos iguais,
+   o titulo em caixa alta quebrando em duas linhas e o vao morto que
+   sobrava embaixo dos cards mais curtos. */
+.scenes{display:grid;gap:var(--s-5)}
+@media(min-width:860px){.scenes{grid-template-columns:1fr 1fr;gap:var(--s-5) var(--s-6)}}
+.pain{position:relative;padding-top:var(--s-3);display:grid;grid-template-columns:auto 1fr;gap:var(--s-3);align-items:baseline}
+.pain::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--red) 0%,rgba(224,83,63,.55) 34%,rgba(224,83,63,0) 100%);transition:background .45s var(--ease)}
+.pain:hover::before{background:linear-gradient(90deg,var(--gold) 0%,rgba(212,175,55,.55) 34%,rgba(212,175,55,0) 100%)}
+.pain .n{font-size:1.45rem;font-weight:800;line-height:1;letter-spacing:-.02em;color:rgba(255,255,255,.26);font-variant-numeric:tabular-nums;transition:color .45s var(--ease)}
+.pain:hover .n{color:var(--gold-lite)}
+.pain h3{font-size:1.06rem;letter-spacing:-.01em;margin-bottom:8px;text-transform:none}
 
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-2);margin-top:var(--s-6)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);margin-top:var(--s-7);border:1px solid var(--glass-line);border-radius:var(--r);background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);overflow:hidden}
 @media(min-width:800px){.stats{grid-template-columns:repeat(4,1fr);gap:var(--s-3)}}
-.stat{text-align:center;padding:var(--s-3)}
-.stat b{display:block;font-size:2.4rem;font-weight:800;line-height:1;letter-spacing:-.03em;color:var(--white)}
+.stat{padding:var(--s-4);border-right:1px solid var(--glass-line);border-bottom:1px solid var(--glass-line)}
+.stat:nth-child(2n){border-right:0}
+.stat:nth-child(n+3){border-bottom:0}
+@media(min-width:800px){.stats{grid-template-columns:repeat(4,1fr)}.stat{border-bottom:0;border-right:1px solid var(--glass-line)}.stat:last-child{border-right:0}}
+.stat b{display:block;font-size:clamp(1.9rem,2.6vw,2.4rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;color:var(--white);font-variant-numeric:tabular-nums}
 .stat b i{font-style:normal;color:var(--gold-lite)}
-.stat>span{display:block;margin-top:8px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--w-60);font-weight:500}
+.stat>span{display:block;margin-top:6px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--w-60);font-weight:500;line-height:1.5}
 
 /* pilares */
 .pillar{text-align:center;padding:var(--s-5) var(--s-4)}
@@ -522,17 +534,17 @@ footer .brand img{width:32px;height:32px}
       <h2>O risco já está na sua rotina. <em>O preparo, não.</em></h2>
       <p class="lead">Procedimentos mais invasivos, sedação, pacientes com comorbidades. A odontologia moderna expõe você a um risco real, e a graduação entregou um preparo raso, teórico e distante do consultório.</p>
     </div>
-    <div class="grid g2 rv-stagger">
-      <div class="glass card pain"><div class="ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div><div><h3>O paciente apagou na cadeira</h3><p><strong>Síncope, hipoglicemia ou algo mais grave?</strong> Você tem segundos para reconhecer, e cada segundo em dúvida é um segundo perdido.</p></div></div>
-      <div class="glass card pain"><div class="ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-4 8-7.5 8-12a8 8 0 1 0-16 0c0 4.5 4 8 8 12z"/><path d="M12 6v8M8 10h8"/></svg></div><div><h3>Reação ao anestésico</h3><p>Lábio inchando, chiado, pressão caindo. <strong>Anafilaxia não espera</strong> a ambulância chegar: a adrenalina precisa estar na sua mão, na dose certa.</p></div></div>
-      <div class="glass card pain"><div class="ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="3"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M12 11v6M9 14h6"/></svg></div><div><h3>A maleta existe, mas ninguém sabe usar</h3><p>Ter DEA, ambu e medicação é obrigação legal. <strong>Saber usar em menos de 3 minutos</strong>, com a equipe inteira, é o que separa o susto da tragédia.</p></div></div>
-      <div class="glass card pain"><div class="ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div><div><h3>O BLS genérico não cobre o consultório</h3><p>Reanimação básica é o mínimo. <strong>Sedação, vasoconstritor, ansiedade, hemorragia pós-cirúrgica</strong> são cenários da odontologia que o curso genérico ignora.</p></div></div>
+    <div class="scenes rv-stagger">
+      <div class="pain"><span class="n">01</span><div><h3>O paciente apagou na cadeira</h3><p><strong>Síncope, hipoglicemia ou algo mais grave?</strong> Você tem segundos para reconhecer, e cada segundo em dúvida é um segundo perdido.</p></div></div>
+      <div class="pain"><span class="n">02</span><div><h3>Reação ao anestésico</h3><p>Lábio inchando, chiado, pressão caindo. <strong>Anafilaxia não espera</strong> a ambulância chegar: a adrenalina precisa estar na sua mão, na dose certa.</p></div></div>
+      <div class="pain"><span class="n">03</span><div><h3>A maleta existe, mas ninguém sabe usar</h3><p>Ter DEA, ambu e medicação é obrigação legal. <strong>Saber usar em menos de 3 minutos</strong>, com a equipe inteira, é o que separa o susto da tragédia.</p></div></div>
+      <div class="pain"><span class="n">04</span><div><h3>O BLS genérico não cobre o consultório</h3><p>Reanimação básica é o mínimo. <strong>Sedação, vasoconstritor, ansiedade, hemorragia pós-cirúrgica</strong> são cenários da odontologia que o curso genérico ignora.</p></div></div>
     </div>
     <div class="stats rv-stagger">
-      <div class="glass stat"><b><span class="count" data-to="16">0</span></b><span>módulos práticos</span></div>
-      <div class="glass stat"><b><span class="count" data-to="10">0</span><i>+</i></b><span>anos de UTI</span></div>
-      <div class="glass stat"><b><span class="count" data-to="12">0</span></b><span>emergências cobertas</span></div>
-      <div class="glass stat"><b><span class="count" data-to="100">0</span><i>%</i></b><span>online e prático</span></div>
+      <div class="stat"><b><span class="count" data-to="16">0</span></b><span>módulos práticos</span></div>
+      <div class="stat"><b><span class="count" data-to="10">0</span><i>+</i></b><span>anos de UTI</span></div>
+      <div class="stat"><b><span class="count" data-to="12">0</span></b><span>emergências cobertas</span></div>
+      <div class="stat"><b><span class="count" data-to="100">0</span><i>%</i></b><span>online e prático</span></div>
     </div>
   </div>
 </section>
