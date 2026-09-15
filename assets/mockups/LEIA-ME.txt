@@ -1,7 +1,7 @@
 MOCKUPS — coloque os PNGs aqui com exatamente estes nomes (fundo transparente).
 Enquanto o arquivo não existir, a página mostra um espaço tracejado no lugar.
 
-app-celular.png          ENTREGUE — composição de dois celulares            1500 x 1588 px
+app-celular.png          ENTREGUE — composição de dois celulares            1500 x 1513 px
 plataforma-notebook.png  Notebook com a área do aluno / plataforma          proporção 16:10  ~ 1600 x 1000 px
 certificado.png          Certificado de conclusão em perspectiva            proporção 4:3    ~ 1200 x 900 px
 ebook-capa.png           Capa do e-book da matéria                          proporção 3:4    ~ 600 x 800 px
