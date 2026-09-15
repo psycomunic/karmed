@@ -296,7 +296,9 @@ strong{font-weight:700}
 @media(min-width:960px){.split{grid-template-columns:1fr 1fr}}
 .mods{display:grid;gap:var(--s-2)}
 .mod{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s-3);align-items:center;padding:var(--s-3)}
-.mod .dot{width:12px;height:12px;border-radius:50%;box-shadow:0 0 12px currentColor}
+.mod .mi{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(212,175,55,.28),rgba(212,175,55,.05));border:1px solid rgba(212,175,55,.38);color:var(--gold-lite);box-shadow:inset 0 1px 0 rgba(255,255,255,.18);transition:background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease)}
+.mod .mi svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.mod:hover .mi{background:var(--gold-grad);color:var(--navy);border-color:transparent}
 .mod h3{font-size:.98rem}
 .mod p{font-size:.82rem;color:var(--w-60);margin-top:2px;font-weight:300}
 .mod .n{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lite);white-space:nowrap}
@@ -678,11 +680,11 @@ footer .brand img{width:32px;height:32px}
           <div class="ph"><b>Mockup da plataforma</b><span>Painel KarMed aberto no navegador</span><code>assets/mockups/plataforma-notebook.png</code><span>PNG com fundo transparente, 1800×1264</span></div>
         </div>
         <div class="mods rv-stagger">
-          <div class="glass static mod"><span class="dot" style="background:var(--gold);color:var(--gold)"></span><div><h3>Legal e Preventivo</h3><p>Responsabilidade profissional, materiais obrigatórios e a anamnese que evita a emergência.</p></div><span class="n">3 módulos</span></div>
-          <div class="glass static mod"><span class="dot" style="background:var(--red);color:var(--red)"></span><div><h3>Cardiovascular</h3><p>Síncope, hipotensão, hipertensão, dor torácica e parada cardiorrespiratória.</p></div><span class="n">5 módulos</span></div>
-          <div class="glass static mod"><span class="dot" style="background:#9C8CF5;color:#9C8CF5"></span><div><h3>Metabólico e Neurológico</h3><p>Ansiedade e pânico, hipoglicemia e crise convulsiva.</p></div><span class="n">3 módulos</span></div>
-          <div class="glass static mod"><span class="dot" style="background:var(--teal);color:var(--teal)"></span><div><h3>Respiratório</h3><p>Asma, reações de hipersensibilidade e obstrução de vias aéreas.</p></div><span class="n">3 módulos</span></div>
-          <div class="glass static mod"><span class="dot" style="background:#F08A4B;color:#F08A4B"></span><div><h3>Procedimentos</h3><p>Hemorragias e acessos vasculares, com a técnica de quem faz isso todo dia.</p></div><span class="n">2 módulos</span></div>
+          <div class="glass static mod"><span class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h3>Legal e Preventivo</h3><p>Responsabilidade profissional, materiais obrigatórios e a anamnese que evita a emergência.</p></div><span class="n">3 módulos</span></div>
+          <div class="glass static mod"><span class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/><path d="M3.2 13h6.3l.5-1 2 4.5 2-7 1.5 3.5h5.3"/></svg></span><div><h3>Cardiovascular</h3><p>Síncope, hipotensão, hipertensão, dor torácica e parada cardiorrespiratória.</p></div><span class="n">5 módulos</span></div>
+          <div class="glass static mod"><span class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5a3 3 0 1 0-6 .125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18z"/><path d="M12 5a3 3 0 1 1 6 .125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18z"/></svg></span><div><h3>Metabólico e Neurológico</h3><p>Ansiedade e pânico, hipoglicemia e crise convulsiva.</p></div><span class="n">3 módulos</span></div>
+          <div class="glass static mod"><span class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v6"/><path d="M12 9.5c-1.2 0-2 .9-2 2.1v5.6c0 1.3-1.1 2.3-2.4 2.2l-1.5-.1c-1.3-.1-2.2-1.3-2-2.6.5-3.6 1.9-6.3 4-7.3"/><path d="M12 9.5c1.2 0 2 .9 2 2.1v5.6c0 1.3 1.1 2.3 2.4 2.2l1.5-.1c1.3-.1 2.2-1.3 2-2.6-.5-3.6-1.9-6.3-4-7.3"/></svg></span><div><h3>Respiratório</h3><p>Asma, reações de hipersensibilidade e obstrução de vias aéreas.</p></div><span class="n">3 módulos</span></div>
+          <div class="glass static mod"><span class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2l4 4"/><path d="M17 7l3-3"/><path d="M19 9L8.7 19.3a2.4 2.4 0 0 1-3.4 0l-.6-.6a2.4 2.4 0 0 1 0-3.4L15 5"/><path d="M9 11l4 4"/><path d="M5 19l-3 3"/></svg></span><div><h3>Procedimentos</h3><p>Hemorragias e acessos vasculares, com a técnica de quem faz isso todo dia.</p></div><span class="n">2 módulos</span></div>
         </div>
         <p class="note">100% online e assíncrono, acesso vitalício, compatível com celular e certificado de conclusão. O programa completo, módulo a módulo, é liberado na área do aluno.</p>
       </div>
