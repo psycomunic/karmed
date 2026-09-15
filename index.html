@@ -398,6 +398,32 @@ strong{font-weight:700}
 .final .wrap{position:relative;z-index:1;text-align:center;display:grid;gap:var(--s-3);justify-items:center}
 .final h2{max-width:22ch}
 .final .cta{display:flex;flex-wrap:wrap;gap:var(--s-2);justify-content:center;margin-top:var(--s-2)}
+/* ===== fechamento: a oferta repetida no ponto de decisao ===== */
+.close{position:relative;z-index:1;width:100%;max-width:980px;margin:var(--s-4) auto 0;text-align:left;
+  border:1px solid rgba(212,175,55,.42);border-radius:var(--r-lg);overflow:hidden;
+  background:linear-gradient(155deg,rgba(18,62,107,.58),rgba(7,15,34,.72));
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 50px 120px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.16)}
+@media(min-width:900px){.close{display:grid;grid-template-columns:1.05fr .95fr}}
+.close .leva{padding:var(--s-4);border-bottom:1px solid var(--glass-line)}
+.close .buy{padding:var(--s-4);display:grid;align-content:center;gap:var(--s-2)}
+@media(min-width:900px){.close .leva,.close .buy{padding:var(--s-5)}.close .leva{border-bottom:0;border-right:1px solid var(--glass-line)}}
+.close .cap{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lite);margin-bottom:var(--s-3)}
+.close .checks{margin-top:0}
+.close .checks li{font-size:.92rem}
+.close .price{display:flex;align-items:flex-start;gap:4px;font-weight:800;font-size:clamp(2.4rem,4.6vw,3.2rem);line-height:1;letter-spacing:-.035em;color:#fff;font-variant-numeric:tabular-nums}
+.close .price small{font-size:1rem;font-weight:700;margin-top:6px}
+.close .price em{font-style:normal;font-size:1.1rem;font-weight:700;margin-top:5px}
+.close .plano{font-size:.86rem;color:var(--w-60);font-weight:300;line-height:1.55}
+.close .buy .btn{width:100%;margin-top:var(--s-1)}
+.close .trust{display:grid;gap:8px;margin-top:var(--s-1)}
+.close .trust span{display:grid;grid-template-columns:16px 1fr;gap:9px;align-items:start;font-size:.78rem;color:var(--w-60);font-weight:400;line-height:1.5}
+.close .trust span::before{content:"✓";color:var(--gold-lite);font-size:.78rem;font-weight:800;line-height:1.55}
+.close .alt{font-size:.8rem;color:var(--w-60);font-weight:300;padding-top:var(--s-2);border-top:1px solid var(--glass-line);line-height:1.55}
+.close .alt b{color:var(--white);font-weight:700}
+.close .alt a{color:var(--gold-lite);text-decoration:underline;text-underline-offset:3px}
+.final .depois{display:flex;flex-wrap:wrap;gap:var(--s-2);justify-content:center;align-items:center;margin-top:var(--s-4)}
+
 .note{font-size:.82rem;color:var(--w-40);margin-top:var(--s-4);max-width:62ch;font-weight:300}
 .light .note{color:var(--muted)}
 
@@ -826,11 +852,37 @@ footer .brand img{width:32px;height:32px}
   <div class="bg" aria-hidden="true"></div>
   <div class="wrap rv">
     <span class="eyebrow"><i></i>Última chamada do lote</span>
-    <h2>A próxima emergência não vai perguntar se você <em>fez o curso.</em></h2>
-    <p class="lead">Entre no ecossistema KARMED hoje e leve o rigor da UTI para o seu consultório.</p>
-    <div class="cta">
-      <a href="#planos" class="btn btn-gold">Garantir minha vaga <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn-wa" href="https://wa.me/5521972109070?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20KARMED." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <h2>Você pode seguir torcendo para não acontecer. <em>Ou pode estar pronto quando acontecer.</em></h2>
+    <p class="lead">A próxima emergência não vai perguntar se você fez o curso. Entre no ecossistema KARMED hoje e leve o rigor da UTI para o seu consultório.</p>
+
+    <div class="close">
+      <div class="leva">
+        <div class="cap">O que você leva</div>
+        <ul class="checks">
+          <li>16 módulos práticos, do reconhecimento à ação</li>
+          <li>App KARMED com IA clínica por 12 meses</li>
+          <li>E-book da matéria, checklist de PCR e da maleta</li>
+          <li>Casos clínicos reais e simulações de decisão sob pressão</li>
+          <li>Guia da maleta conforme a Resolução CFO nº 115/2011</li>
+          <li>Certificado de conclusão</li>
+          <li>Comunidade exclusiva e acesso prioritário a atualizações</li>
+        </ul>
+      </div>
+      <div class="buy">
+        <div class="cap">Investimento</div>
+        <div class="price"><small>R$</small>1.497<em>,00</em></div>
+        <div class="plano">KARMED COMPLETO · curso + app com IA por 12 meses, em uma única entrada.</div>
+        <a href="#planos" class="btn btn-gold">Garantir minha vaga <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="trust">
+          <span>Garantia incondicional de 7 dias: se não for para você, devolvemos tudo</span>
+          <span>Acesso vitalício ao curso e atualizações sem custo adicional</span>
+        </div>
+        <div class="alt">Prefere começar só pelo curso? O <b>Curso Avançado</b> sai por <b>R$ 997,00</b>, com 30 dias grátis do app. <a href="#planos">Comparar os planos</a></div>
+      </div>
+    </div>
+
+    <div class="depois">
+      <a class="btn btn-wa" href="https://wa.me/5521972109070?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20KARMED." target="_blank" rel="noopener">Tirar uma dúvida no WhatsApp</a>
     </div>
     <p class="note" style="text-align:center">Seg. a Sex., 9h às 18h · contato@karmed.com.br</p>
   </div>
