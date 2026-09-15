@@ -3,5 +3,5 @@ Enquanto o arquivo não existir, a página mostra um espaço tracejado no lugar.
 
 app-celular.png          ENTREGUE — composição de dois celulares            1500 x 1513 px
 plataforma-notebook.png  ENTREGUE — painel KarMed no navegador             1800 x 1264 px
-certificado.png          Certificado de conclusão em perspectiva            proporção 4:3    ~ 1200 x 900 px
+certificado.png          ENTREGUE — certificado com selo                  1296 x 1062 px
 ebook-capa.png           ENTREGUE — livro + celular com a capa             934 x 1000 px
